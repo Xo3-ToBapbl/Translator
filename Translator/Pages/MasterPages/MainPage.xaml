@@ -17,7 +17,7 @@
     </MasterDetailPage.Resources>
 
 
-    <MasterDetailPage.Master>
+  <MasterDetailPage.Master>
     <pages:MainPageMaster />
   </MasterDetailPage.Master>
 

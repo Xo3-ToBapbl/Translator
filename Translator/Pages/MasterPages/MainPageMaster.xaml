@@ -10,8 +10,27 @@
         <local:MasterViewModel/>
     </ContentPage.BindingContext>
 
-            <!--BackgroundColor="{StaticResource colorBckgrndDark}"-->
-    <ListView ItemsSource="{Binding MenuItems}"
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MasterPageButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"></Setter>
+                <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+                <Setter Property="HeightRequest" Value="200"></Setter>
+                <Setter Property="Text" Value="Добавить"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout HorizontalOptions="Fill"
+                 Spacing="1">
+
+        <Button HorizontalOptions="Fill"
+                HeightRequest="200"
+                Text="Добавить"/>
+
+    </StackLayout>
+
+    <!--<ListView ItemsSource="{Binding MenuItems}"
               ItemTapped="MenuItemTapped">
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -36,6 +55,6 @@
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>
+    </ListView>-->
 
 </ContentPage>
