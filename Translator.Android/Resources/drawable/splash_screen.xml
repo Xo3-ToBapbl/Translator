@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <color android:color="#33333b"/>
+  </item>
+  <item android:width="60dp"
+        android:height="60dp"
+        android:gravity="center">
+
+    <bitmap
+     android:src="@drawable/book"
+     android:tileMode="disabled"/>
+  </item>
+</layer-list>
