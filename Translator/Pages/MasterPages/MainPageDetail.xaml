@@ -5,6 +5,10 @@
              BackgroundColor="{StaticResource ColorBackgroundLight}"
              Title="Английский">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="sort.png" />
+    </ContentPage.ToolbarItems>
+
 <AbsoluteLayout Padding="0">
 
 </AbsoluteLayout>
