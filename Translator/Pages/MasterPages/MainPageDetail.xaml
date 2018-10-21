@@ -11,7 +11,8 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="sort.png"/>
+        <ToolbarItem Icon="sort.png"
+                     Command="{Binding ToolbarFilterCommand}"/>
     </ContentPage.ToolbarItems>
 
     <AbsoluteLayout>

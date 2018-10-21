@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:localEnums="clr-namespace:Translator.Enums"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="Translator.Pages.PopUpPages.FilterWordsMenu">
+
+    <Pages:PopupPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="FilterMenuButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="CornerRadius" Value="0"></Setter>
+                <Setter Property="Command" Value="{Binding SortWordsCommand}"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Pages:PopupPage.Resources>
+
+    <StackLayout VerticalOptions="Start"
+                 HorizontalOptions="End"
+                 WidthRequest="200"
+                 Spacing="1"
+                 BackgroundColor="{StaticResource ColorBackgroundDark}">
+
+        <Label Text="Сортировать слова:"
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="Center"
+               HeightRequest="40"/>
+
+        <Button Text="по алфавиту A..Z"
+                Style="{StaticResource Key=FilterMenuButton}"
+                CommandParameter="{x:Static localEnums:WordsFilterTypes.Alhabetical}"/>
+
+        <Button Text="по алфавиту Z..A"
+                Style="{StaticResource Key=FilterMenuButton}"
+                CommandParameter="{x:Static localEnums:WordsFilterTypes.AlphabeticalDescending}"/>
+
+        <Button Text="от новых к старым"
+                Style="{StaticResource Key=FilterMenuButton}"
+                CommandParameter="{x:Static localEnums:WordsFilterTypes.Date}"/>
+
+        <Button Text="от старых к новым"
+                Style="{StaticResource Key=FilterMenuButton}"
+                CommandParameter="{x:Static localEnums:WordsFilterTypes.DateDescending}"/>
+
+    </StackLayout>
+
+</Pages:PopupPage>
