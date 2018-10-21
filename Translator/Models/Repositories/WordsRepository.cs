@@ -17,8 +17,6 @@ namespace Translator.Models.Repositories
 
             if (CreateTables() == CreateTableResult.Created)
                 InitializeDataBase();
-
-            var res = GetAll();
         }
 
 
