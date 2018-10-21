@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="Translator.Pages.MasterPages.MainPage"
+                  xmlns:pages="clr-namespace:Translator.Pages.MasterPages"
+                  NavigationPage.HasNavigationBar="False">
+
+    <MasterDetailPage.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ColorTxtCommon}"/>
+                <Setter Property="FontSize" Value="{StaticResource SizeTxtCommon}"/>
+            </Style>
+
+        </ResourceDictionary>
+    </MasterDetailPage.Resources>
+
+
+  <MasterDetailPage.Master>
+    <pages:MainPageMaster />
+  </MasterDetailPage.Master>
+
+  <MasterDetailPage.Detail>
+    <NavigationPage BackgroundColor="{StaticResource ColorBackgroundLight}"
+                    BarBackgroundColor="{StaticResource ColorBackgroundLight}">
+      <x:Arguments>
+        <pages:MainPageDetail />
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+
+</MasterDetailPage>

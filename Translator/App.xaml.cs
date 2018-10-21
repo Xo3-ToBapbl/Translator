@@ -1,4 +1,5 @@
 ﻿using System;
+using Translator.Pages.MasterPages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

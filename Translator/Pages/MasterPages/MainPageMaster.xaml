@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Translator.Pages.MasterPages.MainPageMaster"
+             xmlns:local="clr-namespace:Translator.ViewModels;assembly=Translator"
+             Title="Main Page"
+             BackgroundColor="{StaticResource ColorBackgroundDark}">
+    
+    <ContentPage.BindingContext>
+        <local:MasterViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MasterPageButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+                <Setter Property="Image" Value="next.png"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="ContentLayout" Value="Right"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+                <Setter Property="CornerRadius" Value="0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout HorizontalOptions="Fill"
+                 Spacing="1">
+
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="Добавить"/>
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="Настройки"/>
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="Статистика"/>
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="О приложении"/>
+
+    </StackLayout>
+
+</ContentPage>
