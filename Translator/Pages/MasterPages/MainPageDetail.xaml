@@ -1,16 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Translator.ViewModels"
              x:Class="Translator.Pages.MasterPages.MainPageDetail"
              BackgroundColor="{StaticResource ColorBackgroundLight}"
              Title="Английский">
+
+    <ContentPage.BindingContext>
+        <local:DetailPageViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="sort.png"/>
     </ContentPage.ToolbarItems>
 
-<AbsoluteLayout Padding="0">
+    <AbsoluteLayout>
+        <StackLayout>
+            <SearchBar BackgroundColor="White"
+                       Placeholder="Найти..."
+                       PlaceholderColor="LightGray"
+                       Margin="5,0,5,0"
+                       HeightRequest="37"
+                       Text="{Binding SearchText, Mode=OneWayToSource}"/>
+            
+            <ListView ItemsSource="{Binding Items}"
+                  HasUnevenRows="True"
+                  ItemTapped="ListView_ItemTapped"
+                  BackgroundColor="{StaticResource ColorBackgroundDark}">
 
-</AbsoluteLayout>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <ContentView BackgroundColor="{StaticResource ColorBackgroundLight}"
+                                             Padding="5">
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{Binding Original}"
+                                                          FontSize="{StaticResource SizeTxtCommon}"
+                                                          LineHeight="4"/>
+                                                    <Span Text="&#10;"/>
+                                                    <Span Text="{Binding TranslationsString}"
+                                                          FontSize="{StaticResource SizeTxtAdditional}"
+                                                          TextColor="LightGray"/>
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>    
+                                    </Label>
+                                </ContentView>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>    
+            </ListView>    
+        </StackLayout>
+    </AbsoluteLayout>
 
 </ContentPage>
