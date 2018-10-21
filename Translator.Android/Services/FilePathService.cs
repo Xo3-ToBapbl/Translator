@@ -9,6 +9,9 @@ namespace Translator.Droid.Services
 {
     public class FilePathService : IFilePathService
     {
+        public FilePathService() { }
+
+
         public string GetFilePath(string fileName)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
