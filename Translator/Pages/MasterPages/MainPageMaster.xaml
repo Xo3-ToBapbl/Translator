@@ -14,9 +14,13 @@
         <ResourceDictionary>
             <Style x:Key="MasterPageButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="HorizontalOptions" Value="Fill"></Setter>
-                <Setter Property="HeightRequest" Value="200"></Setter>
-                <Setter Property="Text" Value="Добавить"></Setter>
+                <Setter Property="Image" Value="next.png"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="ContentLayout" Value="Right"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+                <Setter Property="CornerRadius" Value="0"></Setter>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -24,37 +28,15 @@
     <StackLayout HorizontalOptions="Fill"
                  Spacing="1">
 
-        <Button HorizontalOptions="Fill"
-                HeightRequest="200"
+        <Button Style="{StaticResource Key=MasterPageButton}"
                 Text="Добавить"/>
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="Настройки"/>
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="Статистика"/>
+        <Button Style="{StaticResource Key=MasterPageButton}"
+                Text="О приложении"/>
 
     </StackLayout>
-
-    <!--<ListView ItemsSource="{Binding MenuItems}"
-              ItemTapped="MenuItemTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <ViewCell.View>
-                        <Grid Margin="0, 0, 0, 1"
-                              BackgroundColor="{StaticResource ColorBackgroundLight}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.9*" />
-                                <ColumnDefinition Width="0.1*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="{Binding .}"
-                                   WidthRequest="200"
-                                   Margin="10, 0, 0, 0"
-                                   VerticalOptions="Center"
-                                   Grid.Column="0"
-                                   Grid.Row="0"/>
-
-                        </Grid>
-                    </ViewCell.View>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>-->
 
 </ContentPage>
