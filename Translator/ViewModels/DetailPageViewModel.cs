@@ -17,6 +17,7 @@ namespace Translator.ViewModels
     {
         private List<WordViewModel> allItems;
         private ObservableCollection<WordViewModel> items;
+        private double addNewWordButtonOpacity;
 
         public ObservableCollection<WordViewModel> Items
         {
@@ -41,17 +42,43 @@ namespace Translator.ViewModels
                 }
             }
         }
+
+        public double AddNewWordButtonOpacity
+        {
+            get => addNewWordButtonOpacity;
+            set
+            {
+                if (value == addNewWordButtonOpacity) return;
+
+                addNewWordButtonOpacity = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand ToolbarFilterCommand { get; set; }
         public ICommand SortWordsCommand { get; set; }
+        public ICommand AddNewWordCommand { get; set; }
 
 
         public DetailPageViewModel()
         {
+            addNewWordButtonOpacity = 0.4;
+
+            AddNewWordCommand = new Command(
+                execute: async (parametr) =>
+                {
+                    AddNewWordButtonOpacity = 1;
+
+                    var btn = parametr as Button;
+                    var coords = btn.GetScreenCoordinates();
+                    var addNewWordMenu = new AddNewWordMenu(this);
+                    await PopupNavigation.Instance.PushAsync(addNewWordMenu);
+                });
+
             ToolbarFilterCommand = new Command(
                 execute: async () =>
                 {
                     var filterWordsMenu = new FilterWordsMenu(this);
-
                     await PopupNavigation.Instance.PushAsync(filterWordsMenu);
                 });
 

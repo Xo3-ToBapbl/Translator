@@ -8,12 +8,7 @@
     <Pages:PopupPage.Resources>
         <ResourceDictionary>
 
-            <Style x:Key="FilterMenuButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"></Setter>
-                <Setter Property="TextColor" Value="White"></Setter>
-                <Setter Property="HorizontalOptions" Value="Fill"></Setter>
-                <Setter Property="HeightRequest" Value="40"></Setter>
-                <Setter Property="CornerRadius" Value="0"></Setter>
+            <Style x:Key="FilterMenuButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
                 <Setter Property="Command" Value="{Binding SortWordsCommand}"></Setter>
             </Style>
 
@@ -27,10 +22,7 @@
                  BackgroundColor="{StaticResource ColorBackgroundDark}">
 
         <Label Text="Сортировать слова:"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Start"
-               VerticalTextAlignment="Center"
-               HeightRequest="35"/>
+               Style="{StaticResource MenuLabel}"/>
 
         <Button Text="по алфавиту A..Z"
                 Style="{StaticResource Key=FilterMenuButton}"
