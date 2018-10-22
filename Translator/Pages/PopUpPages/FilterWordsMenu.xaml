@@ -3,7 +3,8 @@
                  xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:localEnums="clr-namespace:Translator.Enums"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 x:Class="Translator.Pages.PopUpPages.FilterWordsMenu">
+                 x:Class="Translator.Pages.PopUpPages.FilterWordsMenu"
+                 BackgroundColor="Transparent">
 
     <Pages:PopupPage.Resources>
         <ResourceDictionary>

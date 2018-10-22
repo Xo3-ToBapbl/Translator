@@ -13,7 +13,8 @@
 
             <Color x:Key="ColorBackgroundLight">#33333b</Color>
             <Color x:Key="ColorBackgroundDark">#28292e</Color>
-
+            <Color x:Key="ColorBackgroundLightGray">#48494d</Color>
+            
             <Color x:Key="ColorBtnBackgroundYellow">#f6bb43</Color>
             <Color x:Key="ColorBtnWordOperationBackground">#8cc051</Color>
 
@@ -24,7 +25,7 @@
 
 
             <Style x:Key="MenuButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLightGray}"></Setter>
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="HorizontalOptions" Value="Fill"></Setter>
                 <Setter Property="HeightRequest" Value="40"></Setter>
