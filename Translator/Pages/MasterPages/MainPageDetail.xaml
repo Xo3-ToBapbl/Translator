@@ -59,15 +59,14 @@
         </StackLayout>
 
         <Button x:Name="BtnAddNewWord"
-                Command="{Binding AddNewWordCommand}"
-                CommandParameter="{x:Reference BtnAddNewWord}"
+                Command="{Binding AddNewWordButtonCommand}"
                 BackgroundColor="{StaticResource ColorBtnBackgroundYellow}"
                 Image="addNewWord.png"
                 HeightRequest="60"
                 WidthRequest="60"
                 CornerRadius="30"
                 Opacity="{Binding AddNewWordButtonOpacity}"
-                AbsoluteLayout.LayoutBounds="0.9,0.94,60,60"
+                AbsoluteLayout.LayoutBounds="0.86,0.92,60,60"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
 

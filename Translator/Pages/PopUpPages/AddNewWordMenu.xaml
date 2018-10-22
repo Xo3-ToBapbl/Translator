@@ -1,8 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Translator.Pages.PopUpPages.AddNewWordMenu">
+                 xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:localEnums="clr-namespace:Translator.Enums"
+                 x:Class="Translator.Pages.PopUpPages.AddNewWordMenu"
+                 Padding="0,0,0,105">
+
+    <Pages:PopupPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="AddNewWordMenuButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="Command" Value="{Binding AddNewWordCommand}"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Pages:PopupPage.Resources>
 
     <StackLayout x:Name="StackLayout"
                  VerticalOptions="End"
@@ -15,11 +27,12 @@
                Style="{StaticResource MenuLabel}"/>
                
         <Button Text="вручную"
-                Style="{StaticResource MenuButton}"
-                Clicked="Button_OnClicked"/>
+                Style="{StaticResource AddNewWordMenuButton}"
+                CommandParameter="{x:Static localEnums:AddWordTypes.Manual}"/>
 
         <Button Text="интернет"
-                Style="{StaticResource MenuButton}"/>
+                Style="{StaticResource AddNewWordMenuButton}"
+                CommandParameter="{x:Static localEnums:AddWordTypes.RemoteAPI}"/>
 
     </StackLayout>
 

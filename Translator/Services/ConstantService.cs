@@ -21,5 +21,11 @@ namespace Translator.Services
                 public const string Translations = "Translations";
             }
         }
+
+        public class Opacityes
+        {
+            public const double HalfTransperent = 0.5;
+            public const double FullVisible = 1;
+        }
     }
 }

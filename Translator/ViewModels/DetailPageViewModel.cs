@@ -57,22 +57,27 @@ namespace Translator.ViewModels
 
         public ICommand ToolbarFilterCommand { get; set; }
         public ICommand SortWordsCommand { get; set; }
+        public ICommand AddNewWordButtonCommand { get; set; }
         public ICommand AddNewWordCommand { get; set; }
 
 
         public DetailPageViewModel()
         {
-            addNewWordButtonOpacity = 0.4;
+            addNewWordButtonOpacity = ConstantService.Opacityes.HalfTransperent;
 
-            AddNewWordCommand = new Command(
-                execute: async (parametr) =>
+            AddNewWordButtonCommand = new Command(
+                execute: async () =>
                 {
-                    AddNewWordButtonOpacity = 1;
+                    AddNewWordButtonOpacity = ConstantService.Opacityes.FullVisible;
 
-                    var btn = parametr as Button;
-                    var coords = btn.GetScreenCoordinates();
                     var addNewWordMenu = new AddNewWordMenu(this);
                     await PopupNavigation.Instance.PushAsync(addNewWordMenu);
+                });
+
+            AddNewWordCommand = new Command<AddWordTypes>(
+                execute: async (addWordsType) =>
+                {
+                    await PopupNavigation.Instance.PopAsync();
                 });
 
             ToolbarFilterCommand = new Command(
