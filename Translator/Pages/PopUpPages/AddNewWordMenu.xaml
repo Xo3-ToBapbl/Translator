@@ -16,8 +16,7 @@
         </ResourceDictionary>
     </Pages:PopupPage.Resources>
 
-    <StackLayout x:Name="StackLayout"
-                 VerticalOptions="End"
+    <StackLayout VerticalOptions="End"
                  HorizontalOptions="End"
                  WidthRequest="160"
                  Spacing="1"
