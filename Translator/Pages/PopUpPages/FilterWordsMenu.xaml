@@ -27,13 +27,14 @@
                  BackgroundColor="{StaticResource ColorBackgroundDark}">
 
         <Label Text="Сортировать слова:"
+               HorizontalOptions="Center"
                HorizontalTextAlignment="Start"
                VerticalTextAlignment="Center"
-               HeightRequest="40"/>
+               HeightRequest="35"/>
 
         <Button Text="по алфавиту A..Z"
                 Style="{StaticResource Key=FilterMenuButton}"
-                CommandParameter="{x:Static localEnums:WordsFilterTypes.Alhabetical}"/>
+                CommandParameter="{x:Static localEnums:WordsFilterTypes.Alphabetical}"/>
 
         <Button Text="по алфавиту Z..A"
                 Style="{StaticResource Key=FilterMenuButton}"

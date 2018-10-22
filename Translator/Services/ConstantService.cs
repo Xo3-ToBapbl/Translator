@@ -6,6 +6,11 @@ namespace Translator.Services
 {
     public static class ConstantService
     {
+        public class AppPropertiesKeys
+        {
+            public const string WordsFilterType = "WordsFilterType";
+        }
+
         public class DataBase
         {
             public const string Name = "MyDictionary.db";

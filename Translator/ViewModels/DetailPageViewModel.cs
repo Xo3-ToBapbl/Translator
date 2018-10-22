@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Translator.Enums;
 using Translator.Extensions;
 using Translator.Pages.PopUpPages;
+using Translator.Services;
 using Xamarin.Forms;
 
 namespace Translator.ViewModels
@@ -19,14 +20,13 @@ namespace Translator.ViewModels
 
         public ObservableCollection<WordViewModel> Items
         {
-            get { return items; }
+            get => items;
             set
             {
-                if (items != value)
-                {
-                    items = value;
-                    this.OnPropertyChanged();
-                }
+                if (items == value) return;
+
+                items = value;
+                this.OnPropertyChanged();
             }
         }
         public string SearchText
@@ -59,6 +59,8 @@ namespace Translator.ViewModels
                 execute: (wordsFilterTypes) =>
                 {
                     SortWords(wordsFilterTypes);
+                    App.Current
+                       .Properties[ConstantService.AppPropertiesKeys.WordsFilterType] = wordsFilterTypes.ToString();
 
                     PopupNavigation.Instance.PopAsync();
                 });
@@ -70,17 +72,29 @@ namespace Translator.ViewModels
             allItems = App.WordsRepository
                 .GetAll()
                 .Select(word => word.ToViewModel(this))
-                .OrderBy(word => word.Original)
                 .ToList();
 
-            Items = allItems.ToObservableCollection();
+            SortWords(GetWordsFilterType());
+        }
+
+
+        private WordsFilterTypes GetWordsFilterType()
+        {
+            string wordsFilterKey = ConstantService.AppPropertiesKeys.WordsFilterType;
+            if (!App.Current.Properties.TryGetValue(wordsFilterKey, out var wordsFilter))
+                return WordsFilterTypes.None;
+
+            string wordsFilterString = (string) wordsFilter;
+            return Enum.TryParse(wordsFilterString, true, out WordsFilterTypes wordsFilterType)
+                ? wordsFilterType
+                : WordsFilterTypes.None;
         }
 
         private void SortWords(WordsFilterTypes wordsFilterTypes)
         {
             switch (wordsFilterTypes)
             {
-                case WordsFilterTypes.Alhabetical:
+                case WordsFilterTypes.Alphabetical:
                     allItems = allItems
                         .OrderBy(item => item.Original)
                         .ToList();
@@ -99,6 +113,8 @@ namespace Translator.ViewModels
                     allItems = allItems
                         .OrderByDescending(item => item.DateAdded)
                         .ToList();
+                    break;
+                case WordsFilterTypes.None:
                     break;
                 default:
                     break;

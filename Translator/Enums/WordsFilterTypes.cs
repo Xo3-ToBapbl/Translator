@@ -7,7 +7,7 @@ namespace Translator.Enums
     public enum WordsFilterTypes
     {
         None,
-        Alhabetical,
+        Alphabetical,
         AlphabeticalDescending,
         Date,
         DateDescending,
