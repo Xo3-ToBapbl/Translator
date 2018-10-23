@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Input;
 using Translator.Enums;
 using Translator.Extensions;
+using Translator.Interfaces;
 using Translator.Pages.PopUpPages;
 using Translator.Services;
 using Xamarin.Forms;
@@ -68,6 +69,8 @@ namespace Translator.ViewModels
             AddNewWordButtonCommand = new Command(
                 execute: async () =>
                 {
+                    var res = await DependencyService.Get<ITranslationRemoteService>().GetTranslation("home");
+
                     AddNewWordButtonOpacity = ConstantService.Opacityes.FullVisible;
 
                     var addNewWordMenu = new AddNewWordMenu(this);
@@ -92,7 +95,7 @@ namespace Translator.ViewModels
                 {
                     SortWords(wordsFilterTypes);
                     App.Current
-                       .Properties[ConstantService.AppPropertiesKeys.WordsFilterType] = wordsFilterTypes.ToString();
+                       .Properties[ConstantService.AppKeys.WordsFilterType] = wordsFilterTypes.ToString();
 
                     PopupNavigation.Instance.PopAsync();
                 });
@@ -112,7 +115,7 @@ namespace Translator.ViewModels
 
         private WordsFilterTypes GetWordsFilterType()
         {
-            string wordsFilterKey = ConstantService.AppPropertiesKeys.WordsFilterType;
+            string wordsFilterKey = ConstantService.AppKeys.WordsFilterType;
             if (!App.Current.Properties.TryGetValue(wordsFilterKey, out var wordsFilter))
                 return WordsFilterTypes.None;
 
