@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Translator.Enums;
 using Translator.Extensions;
 using Translator.Interfaces;
+using Translator.Pages;
 using Translator.Pages.PopUpPages;
 using Translator.Services;
 using Xamarin.Forms;
@@ -56,6 +57,7 @@ namespace Translator.ViewModels
             }
         }
 
+        public INavigation Navigation { get; set; }
         public ICommand ToolbarFilterCommand { get; set; }
         public ICommand SortWordsCommand { get; set; }
         public ICommand AddNewWordButtonCommand { get; set; }
@@ -69,8 +71,6 @@ namespace Translator.ViewModels
             AddNewWordButtonCommand = new Command(
                 execute: async () =>
                 {
-                    var res = await DependencyService.Get<ITranslationRemoteService>().GetTranslation("home");
-
                     AddNewWordButtonOpacity = ConstantService.Opacityes.FullVisible;
 
                     var addNewWordMenu = new AddNewWordMenu(this);
@@ -81,6 +81,8 @@ namespace Translator.ViewModels
                 execute: async (addWordsType) =>
                 {
                     await PopupNavigation.Instance.PopAsync();
+
+                    await Navigation.PushModalAsync(new WordPage(new WordViewModel()));
                 });
 
             ToolbarFilterCommand = new Command(

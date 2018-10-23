@@ -14,6 +14,7 @@ using Android.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Translator.Droid.Services;
+using Translator.Extensions;
 using Translator.Interfaces;
 using Translator.Models;
 using Translator.Services;
@@ -38,6 +39,17 @@ namespace Translator.Droid.Services
         private string baseQuery;
         private JsonSerializer jsonSerializer;
 
+        private bool IsConnected
+        {
+            get
+            {
+                var connectivityManager = (ConnectivityManager) Android.App.Application
+                    .Context.GetSystemService(Android.App.Application.ConnectivityService);
+
+                return connectivityManager.ActiveNetworkInfo.IsConnected;
+            }
+        }
+
 
         public TranslationYandexService()
         {
@@ -49,8 +61,7 @@ namespace Translator.Droid.Services
                 Path = "/api/v1.5/tr.json/translate"
             };
 
-            baseQuery =
-                "?key=trnsl.1.1.20181023T063802Z.4e09c09340d7c4b3.3865608bacb4685a4ef5b1da339c5958d758324b&lang=en-ru&text=";
+            baseQuery = ConstantService.AppKeys.YandexQueryKeys.ToQueryString();
         }
 
 
@@ -75,17 +86,6 @@ namespace Translator.Droid.Services
                 HasError = false,
                 Text = yandexResponce.Text,
             };
-        }
-
-        private bool IsConnected
-        {
-            get
-            {
-                var connectivityManager = (ConnectivityManager) Android.App.Application
-                    .Context.GetSystemService(Android.App.Application.ConnectivityService);
-
-                return connectivityManager.ActiveNetworkInfo.IsConnected;
-            }
         }
 
         private WebRequest GetRequest(string translatedString)

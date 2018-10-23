@@ -10,7 +10,7 @@ namespace Translator.Services
         public class AppKeys
         {
             public const string WordsFilterType = "WordsFilterType";
-            public readonly NameValueCollection YandexQueryKeys = new NameValueCollection
+            public static NameValueCollection YandexQueryKeys = new NameValueCollection
             {
                 { "key", "trnsl.1.1.20181023T063802Z.4e09c09340d7c4b3.3865608bacb4685a4ef5b1da339c5958d758324b" },
                 { "lang", "en-ru" },

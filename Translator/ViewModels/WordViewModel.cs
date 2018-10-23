@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Translator.ViewModels
 {
@@ -9,9 +11,7 @@ namespace Translator.ViewModels
         private string original;
         private List<TranslationViewModel> translations;
 
-
         public int Id { get; set; }
-
         public string Original
         {
             get => original;
@@ -24,9 +24,7 @@ namespace Translator.ViewModels
                 }
             }
         }
-
         public DateTime DateAdded { get; set; }
-
         public List<TranslationViewModel> Translations
         {
             get
@@ -42,7 +40,6 @@ namespace Translator.ViewModels
                     translations = value;
             }
         }
-
         public string TranslationsString
         {
             get
@@ -53,7 +50,14 @@ namespace Translator.ViewModels
                 return string.Empty;
             }
         }
-
         public DetailPageViewModel RootViewModel { get; set; }
+
+        public INavigation Navigation { get; set; }
+
+        public ICommand AddTranslationCommand { get; }
+        public ICommand UpdateTranslationCommand { get; }
+        public ICommand DeleteTranslationCommand { get; }
+        public ICommand SaveWordCommand { get; }
+        public ICommand CancelWordCommand { get; }
     }
 }

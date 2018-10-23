@@ -15,6 +15,8 @@ namespace Translator.Pages.MasterPages
         public MainPageDetail()
         {
             InitializeComponent();
+
+            viewModel.Navigation = this.Navigation;
         }
 
 
