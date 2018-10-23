@@ -16,5 +16,18 @@ namespace Translator.Pages.MasterPages
         {
             InitializeComponent();
         }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            viewModel.OnAppearing();
+        }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }

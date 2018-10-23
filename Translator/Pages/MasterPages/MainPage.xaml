@@ -5,7 +5,7 @@
                   xmlns:pages="clr-namespace:Translator.Pages.MasterPages"
                   NavigationPage.HasNavigationBar="False">
 
-    <MasterDetailPage.Resources>
+  <MasterDetailPage.Resources>
         <ResourceDictionary>
 
             <Style TargetType="Label">

@@ -1,12 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Translator.ViewModels"
              x:Class="Translator.Pages.MasterPages.MainPageDetail"
              BackgroundColor="{StaticResource ColorBackgroundLight}"
              Title="Английский">
 
-<AbsoluteLayout Padding="0">
+    <ContentPage.BindingContext>
+        <local:DetailPageViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
 
-</AbsoluteLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="sort.png"
+                     Command="{Binding ToolbarFilterCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <AbsoluteLayout>
+        <StackLayout>
+            <SearchBar BackgroundColor="White"
+                       Placeholder="Найти..."
+                       PlaceholderColor="LightGray"
+                       Margin="5,0,5,0"
+                       HeightRequest="37"
+                       Text="{Binding SearchText, Mode=OneWayToSource}"/>
+
+            <ListView ItemsSource="{Binding Items}"
+                      HasUnevenRows="True"
+                      ItemTapped="ListView_ItemTapped"
+                      BackgroundColor="{StaticResource ColorBackgroundDark}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <ContentView BackgroundColor="{StaticResource ColorBackgroundLight}"
+                                             Padding="5">
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{Binding Original}"
+                                                          FontSize="{StaticResource SizeTxtCommon}"
+                                                          LineHeight="4"/>
+                                                    <Span Text="&#10;"/>
+                                                    <Span Text="{Binding TranslationsString}"
+                                                          FontSize="{StaticResource SizeTxtAdditional}"
+                                                          TextColor="LightGray"/>
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>    
+                                    </Label>
+                                </ContentView>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>    
+            </ListView>    
+
+        </StackLayout>
+
+        <Button x:Name="BtnAddNewWord"
+                Command="{Binding AddNewWordButtonCommand}"
+                BackgroundColor="{StaticResource ColorBtnBackgroundYellow}"
+                Image="addNewWord.png"
+                HeightRequest="60"
+                WidthRequest="60"
+                CornerRadius="30"
+                Opacity="{Binding AddNewWordButtonOpacity}"
+                AbsoluteLayout.LayoutBounds="0.86,0.92,60,60"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+
+    </AbsoluteLayout>
 
 </ContentPage>
