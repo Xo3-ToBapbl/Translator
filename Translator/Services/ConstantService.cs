@@ -37,7 +37,9 @@ namespace Translator.Services
 
         public class ErrorMessages
         {
-            public const string ServerError = "Ошибка на сервере. Попробуйте позже";
+            public const string ServerError = "Серверная ошибка. Попробуйте позже";
+            public const string HasNoConnection = "Отсутствует подключение к сети";
+            public const string EmptyTranslatedString = "Вы пытаетесь перевести пустую строку";
         }
     }
 }

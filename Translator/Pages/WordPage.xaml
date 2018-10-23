@@ -51,24 +51,35 @@
                     HorizontalOptions="Start"
                     VerticalOptions="Center"/>
 
-            <Button x:Name="btnSaveWord"
-                            Text="Сохранить"
-                            TextColor="Black"
-                            BackgroundColor="{StaticResource ColorBtnWordOperationBackground}"
-                            HeightRequest="32"
-                            WidthRequest="105"
-                            BorderRadius="16"
-                            VerticalOptions="Center"
-                            HorizontalOptions="EndAndExpand"
-                            Command="{Binding SaveWordCommand}">
-            </Button>
+            <Controls:CustomButton x:Name="btnSaveWord"
+                                   Text="Сохранить"
+                                   TextColor="Black"
+                                   BackgroundColor="{StaticResource ColorBtnWordOperationBackground}"
+                                   HeightRequest="32"
+                                   WidthRequest="105"
+                                   BorderRadius="16"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="EndAndExpand"
+                                   Command="{Binding SaveWordCommand}">
+            </Controls:CustomButton>
 
         </StackLayout>
 
-        <Controls:CustomEntry x:Name="entryOriginal"
+        <StackLayout Orientation="Horizontal">
+            <Controls:CustomEntry x:Name="entryOriginal"
                                 Placeholder="Слово"
                                 Style="{StaticResource customEntryStyle}"
                                 Text="{Binding Original}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="True"
+                               WidthRequest="24"
+                               HeightRequest="24"
+                               VerticalOptions="Center"
+                               HorizontalOptions="End"
+                               Color="WhiteSmoke"
+                               Margin="0"/>
+        </StackLayout>
 
         <StackLayout Orientation="Horizontal">
 

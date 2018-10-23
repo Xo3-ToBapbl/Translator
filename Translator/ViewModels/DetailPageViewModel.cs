@@ -82,7 +82,7 @@ namespace Translator.ViewModels
                 {
                     await PopupNavigation.Instance.PopAsync();
 
-                    await Navigation.PushModalAsync(new WordPage(new WordViewModel()));
+                    await Navigation.PushModalAsync(new WordPage(new WordViewModel(addWordsType)));
                 });
 
             ToolbarFilterCommand = new Command(

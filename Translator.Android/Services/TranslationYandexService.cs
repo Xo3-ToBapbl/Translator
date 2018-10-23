@@ -67,7 +67,19 @@ namespace Translator.Droid.Services
 
         public async Task<TranslationResponse> GetTranslation(string translatedString)
         {
-            if (string.IsNullOrEmpty(translatedString) || !IsConnected) return null;
+            if (string.IsNullOrWhiteSpace(translatedString))
+                return new TranslationResponse()
+                {
+                    HasError = true,
+                    Message = ConstantService.ErrorMessages.EmptyTranslatedString,
+                };
+
+            if (!IsConnected)
+                return new TranslationResponse()
+                {
+                    HasError = true,
+                    Message = ConstantService.ErrorMessages.HasNoConnection,
+                };
 
             WebRequest request = GetRequest(translatedString);
             YandexResponce yandexResponce = await GetResponce(request);
