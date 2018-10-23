@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Controls="clr-namespace:Translator.Controls; assembly=Translator..NETStandard,Version=v2.0"
+             xmlns:Controls="clr-namespace:Translator.Controls"
              x:Class="Translator.Pages.WordPage"
              BackgroundColor="{StaticResource ColorBackgroundDark}"
              NavigationPage.HasNavigationBar="False">

@@ -114,7 +114,6 @@ namespace Translator.ViewModels
             SortWords(GetWordsFilterType());
         }
 
-
         private WordsFilterTypes GetWordsFilterType()
         {
             string wordsFilterKey = ConstantService.AppKeys.WordsFilterType;
