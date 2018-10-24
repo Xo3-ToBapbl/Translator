@@ -37,9 +37,12 @@ namespace Translator.Services
 
         public class ErrorMessages
         {
-            public const string ServerError = "Серверная ошибка. Попробуйте позже";
-            public const string HasNoConnection = "Отсутствует подключение к сети";
-            public const string EmptyTranslatedString = "Вы пытаетесь перевести пустую строку";
+            public const string ServerError = "Серверная ошибка. Попробуйте позже.";
+            public const string HasNoConnection = "Отсутствует подключение к сети.";
+            public const string EmptyTranslatedString = "Вы пытаетесь перевести пустую строку.";
+            public const string EmptyWord = "Вы не ввели слово.";
+            public const string EmptyTranslation = "Вы не ввели перевод.";
+            public const string WordAlreadyExist = "Данное слово уже содержится в словаре.";
         }
     }
 }

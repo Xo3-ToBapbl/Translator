@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FluentValidation.Results;
 using Translator.Enums;
 using Translator.Interfaces;
 using Translator.Models;
+using Translator.ViewModels.Validations;
 using Xamarin.Forms;
 
 namespace Translator.ViewModels
@@ -131,11 +133,33 @@ namespace Translator.ViewModels
                     Translations.Remove(viewModel);
                 });
 
+            SaveWordCommand = new Command(
+                execute: () =>
+                {
+                    var wordValidator = new WordViewModelValidator();
+                    var validationResult = wordValidator.Validate(this);
+
+                    if (validationResult.IsValid)
+                        SaveWord();
+                    else
+                        ShowPopUpAlert(validationResult.ToString("\n"));
+                });
+
             CancelWordCommand = new Command(
                 execute: () =>
                 {
                     Navigation.PopModalAsync();
                 });
+        }
+
+        private void ShowPopUpAlert(string toString)
+        {
+
+        }
+
+        private void SaveWord()
+        {
+
         }
 
 
