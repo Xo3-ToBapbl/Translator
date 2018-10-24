@@ -25,6 +25,7 @@
                        Text="{Binding SearchText, Mode=OneWayToSource}"/>
 
             <ListView ItemsSource="{Binding Items}"
+                      SelectedItem="{Binding SelectedWord}"
                       HasUnevenRows="True"
                       ItemTapped="ListView_ItemTapped"
                       BackgroundColor="{StaticResource ColorBackgroundDark}">

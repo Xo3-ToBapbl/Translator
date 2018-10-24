@@ -12,13 +12,12 @@ namespace Translator.Extensions
     {
         public static WordViewModel ToViewModel(this Word word, DetailPageViewModel rootViewModel)
         {
-            return new WordViewModel(AddWordTypes.Manual)
+            return new WordViewModel(AddWordTypes.Manual, rootViewModel)
             {
                 Id = word.Id,
                 Original = word.Original,
                 DateAdded = word.DateAdded,
                 Translations = word.Translations.Select(item => item.ToViewModel()).ToObservableCollection(),
-                RootViewModel = rootViewModel,
             };
         }
 

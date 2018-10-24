@@ -3,12 +3,15 @@ using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Translator.Services;
 
 namespace Translator.Models.Repositories
 {
     public class WordsRepository
     {
         private readonly SQLiteConnection dataBase;
+        private string originalWords;
+        private string translations;
 
 
         public WordsRepository(string dataBasePath)
@@ -17,6 +20,9 @@ namespace Translator.Models.Repositories
 
             if (CreateTables() == CreateTableResult.Created)
                 InitializeDataBase();
+
+            originalWords = ConstantService.DataBase.TableNames.OriginalWords;
+            translations = ConstantService.DataBase.TableNames.Translations;
         }
 
 
@@ -28,6 +34,16 @@ namespace Translator.Models.Repositories
         public void Add(Word word)
         {
             dataBase.InsertWithChildren(word);
+        }
+
+        public void Update(Word word)
+        {
+            if (word == null) return;
+
+            dataBase
+                .InsertOrReplaceWithChildren(word);
+            dataBase
+                .Execute($"DELETE FROM {translations} WHERE {translations}.{nameof(Translation.WordId)} IS NULL;");
         }
 
 

@@ -20,7 +20,7 @@ namespace Translator.ViewModels.Validations
                 .WithMessage(ConstantService.ErrorMessages.WordAlreadyExist);
 
             RuleFor(viewModel => viewModel.Translations)
-                .Must(viewModels => viewModels.All(viewModel=>!string.IsNullOrEmpty(viewModel.Value)))
+                .NotEmpty()
                 .WithMessage(ConstantService.ErrorMessages.EmptyTranslation);
         }
     }

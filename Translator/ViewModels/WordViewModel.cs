@@ -6,9 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FluentValidation.Results;
+using Rg.Plugins.Popup.Services;
 using Translator.Enums;
+using Translator.Extensions;
 using Translator.Interfaces;
 using Translator.Models;
+using Translator.Pages.PopUpPages;
 using Translator.ViewModels.Validations;
 using Xamarin.Forms;
 
@@ -100,9 +103,10 @@ namespace Translator.ViewModels
         public ICommand CancelWordCommand { get; }
 
 
-        public WordViewModel(AddWordTypes addWordTypes)
+        public WordViewModel(AddWordTypes addWordTypes, DetailPageViewModel rootViewModel)
         {
             translations = new ObservableCollection<TranslationViewModel>();
+            RootViewModel = rootViewModel;
             AddWordTypes = addWordTypes;
 
             AddTranslationCommand = new Command(
@@ -152,14 +156,23 @@ namespace Translator.ViewModels
                 });
         }
 
-        private void ShowPopUpAlert(string toString)
+        private async void ShowPopUpAlert(string errorMessage)
         {
+            var page = new SaveNewWordPopUpPage(errorMessage);
 
+            await PopupNavigation.Instance.PushAsync(page);
         }
 
-        private void SaveWord()
+        private async void SaveWord()
         {
+            DateAdded = DateTime.Now;
 
+            //if (this.Id == 0)
+            //    App.WordsRepository.Add(this.ToModel());
+            //else
+            //    App.WordsRepository.Update(this.ToModel());
+
+            await Navigation.PopModalAsync();
         }
 
 

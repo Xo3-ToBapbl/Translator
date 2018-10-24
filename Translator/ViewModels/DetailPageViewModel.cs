@@ -32,6 +32,14 @@ namespace Translator.ViewModels
                 this.OnPropertyChanged();
             }
         }
+        public WordViewModel SelectedWord
+        {
+            set
+            {
+                if (value != null)
+                    ShowWordPage(AddWordTypes.Manual, value);
+            }
+        }
         public string SearchText
         {
             set
@@ -44,7 +52,6 @@ namespace Translator.ViewModels
                 }
             }
         }
-
         public double AddNewWordButtonOpacity
         {
             get => addNewWordButtonOpacity;
@@ -82,7 +89,7 @@ namespace Translator.ViewModels
                 {
                     await PopupNavigation.Instance.PopAsync();
 
-                    await Navigation.PushModalAsync(new WordPage(new WordViewModel(addWordsType)));
+                    ShowWordPage(addWordsType);
                 });
 
             ToolbarFilterCommand = new Command(
@@ -112,6 +119,14 @@ namespace Translator.ViewModels
                 .ToList();
 
             SortWords(GetWordsFilterType());
+        }
+
+        private async void ShowWordPage(AddWordTypes addWordsType, WordViewModel viewModel=null )
+        {
+            if (viewModel == null)
+                viewModel=new WordViewModel(addWordsType, this);
+
+            await Navigation.PushModalAsync(new WordPage(viewModel));
         }
 
         private WordsFilterTypes GetWordsFilterType()
