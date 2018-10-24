@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,11 +14,11 @@ namespace Translator.ViewModels
 {
     public class WordViewModel : ViewModel
     {
-        private const int throttlePeriod = 1000;
+        private const int throttlePeriod = 1500;
         private string original;
         private string currentTranslation;
         private bool isBusy;
-        private List<TranslationViewModel> translations;
+        private ObservableCollection<TranslationViewModel> translations;
 
         public int Id { get; set; }
         public string Original
@@ -24,14 +26,17 @@ namespace Translator.ViewModels
             get => original;
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (value != null)
                 {
                     original = value;
                     OnPropertyChanged();
 
                     if (AddWordTypes == AddWordTypes.RemoteAPI)
                     {
-                        TranslateWithDelay();
+                        if (value != string.Empty)
+                            TranslateWithDelay();
+                        else
+                            Translations.Clear();
                     }
                 }
             }
@@ -61,21 +66,6 @@ namespace Translator.ViewModels
             }
         }
         public DateTime DateAdded { get; set; }
-        public List<TranslationViewModel> Translations
-        {
-            get
-            {
-                if (translations == null)
-                    translations = new List<TranslationViewModel>();
-
-                return translations;
-            }
-            set
-            {
-                if (value != null && value != translations)
-                    translations = value;
-            }
-        }
         public string TranslationsString
         {
             get
@@ -87,6 +77,17 @@ namespace Translator.ViewModels
             }
         }
         public DetailPageViewModel RootViewModel { get; set; }
+        public ObservableCollection<TranslationViewModel> Translations
+        {
+            get => translations;
+            set
+            {
+                if (value == null) return;
+
+                translations = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public INavigation Navigation { get; set; }
         public AddWordTypes AddWordTypes { get; private set; }
@@ -99,9 +100,23 @@ namespace Translator.ViewModels
 
         public WordViewModel(AddWordTypes addWordTypes)
         {
+            translations = new ObservableCollection<TranslationViewModel>();
             AddWordTypes = addWordTypes;
 
+            AddTranslationCommand = new Command(
+                execute:()=>
+                {
+                    AddTranslation(CurrentTranslation);
+                },
+                canExecute: () =>
+                {
+                    if (!string.IsNullOrWhiteSpace(CurrentTranslation) &&
+                        !Translations.Select(item => item.Value).Contains(CurrentTranslation))
+                        return true;
 
+                    CurrentTranslation = string.Empty;
+                    return false;
+                });
         }
 
 
@@ -118,10 +133,24 @@ namespace Translator.ViewModels
                     .GetTranslation(Original);
 
                 if (!translation.HasError)
-                    CurrentTranslation = translation.Text;
+                {
+                    Translations.Clear();
+                    AddTranslation(translation.Text);
+                }
 
                 IsBusy = false;
             }
+        }
+
+        private void AddTranslation(string translation)
+        {
+            var translationViewModel = new TranslationViewModel()
+            {
+                Value = translation,
+            };
+
+            this.Translations.Add(translationViewModel);
+            CurrentTranslation = string.Empty;
         }
     }
 }

@@ -148,5 +148,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cancelWhite64px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\deleteTranslation24px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

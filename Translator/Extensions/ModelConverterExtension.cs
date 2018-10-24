@@ -17,7 +17,7 @@ namespace Translator.Extensions
                 Id = word.Id,
                 Original = word.Original,
                 DateAdded = word.DateAdded,
-                Translations = word.Translations.Select(item => item.ToViewModel()).ToList(),
+                Translations = word.Translations.Select(item => item.ToViewModel()).ToObservableCollection(),
                 RootViewModel = rootViewModel,
             };
         }

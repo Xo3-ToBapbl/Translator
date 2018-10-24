@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
@@ -17,13 +18,12 @@ namespace Translator.Controls
 
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty
-                .CreateAttached(nameof(ItemsSourceProperty),
-                                typeof(IEnumerable<T>),
-                                typeof(CustomFlexLayout<T>),
-                                null,
-                                BindingMode.OneWay,
-                                null,
-                                ItemsChanged);
+                .CreateAttached(propertyName:nameof(ItemsSourceProperty),
+                                returnType: typeof(IEnumerable<T>),
+                                declaringType: typeof(CustomFlexLayout<T>),
+                                defaultValue:null,
+                                defaultBindingMode: BindingMode.OneWay,
+                                propertyChanged: ItemsChanged);
 
 
         public IEnumerable<T> ItemsSource
@@ -38,18 +38,31 @@ namespace Translator.Controls
             set => SetValue(ItemTemplateProperty, value);
         }
 
+
         private static void ItemsChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = bindable as CustomFlexLayout<T>;
-            if (control == null) return;
+            if (bindable is CustomFlexLayout<T> control)
+            {
+                control.UpdateChildren();
+                if (newValue is INotifyCollectionChanged observableCollection)
+                {
+                    observableCollection.CollectionChanged += (sender, e) =>
+                    {
+                        control.UpdateChildren();
+                    };
+                }
+            }
+        }
 
-            control.Children.Clear();
+        private void UpdateChildren()
+        {
+            this.Children.Clear();
 
-            var items = (IEnumerable<T>) newValue;
-            if (items.Any())
+            var items = ItemsSource;
+            if (items?.Any() ?? false)
             {
                 foreach (var item in items)
-                    control.Children.Add(control.ViewFor(item));
+                    this.Children.Add(this.ViewFor(item));
             }
         }
 
