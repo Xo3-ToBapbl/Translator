@@ -96,7 +96,7 @@ namespace Translator.Droid.Services
             return new TranslationResponse()
             {
                 HasError = false,
-                Text = yandexResponce.Text,
+                Text = yandexResponce.Text.First(),
             };
         }
 

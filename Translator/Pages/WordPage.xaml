@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:Translator.Controls"
+             xmlns:ViewModels="clr-namespace:Translator.ViewModels"
              x:Class="Translator.Pages.WordPage"
              BackgroundColor="{StaticResource ColorBackgroundDark}"
              NavigationPage.HasNavigationBar="False">
@@ -103,9 +104,58 @@
 
         </StackLayout>
 
-        <FlexLayout x:Name="flexTranslations"
-                    Direction="Row" 
-                    Wrap="Wrap"/>
+        <Controls:CustomFlexLayout x:TypeArguments="ViewModels:TranslationViewModel" 
+                                   x:Name="flexTranslations"
+                                   Direction="Row"
+                                   Wrap="Wrap"
+                                   ItemsSource="{Binding Obj}">
+
+            <Controls:CustomFlexLayout.ItemTemplate>
+                <DataTemplate>
+
+                    <Frame HeightRequest="32"
+                           CornerRadius="16"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           Margin="0,0,3,3"    
+                           Padding="10,0,10,0"
+                           BackgroundColor="{StaticResource ColorBtnWordOperationBackground}">
+
+                        <StackLayout Orientation="Horizontal" 
+                                     Padding="0">
+
+                            <Label x:Name="LabelTranslation"
+                                   Text="тест"
+                                   TextColor="Black"
+                                   Margin="0,0,3,4"
+                                   FontSize="17"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center">
+
+                                <Label.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Tapped="labelTranslation_Tapped"/>-->
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Image x:Name="imageDeleteTranslation"
+                                   Source="deleteTranslation24px.png"
+                                   HeightRequest="12"
+                                   WidthRequest="12"
+                                   VerticalOptions="Center">
+
+                                <Image.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Tapped="imageDeleteTranslation_Tapped"/>-->
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                        </StackLayout>
+                    </Frame>
+
+                </DataTemplate>
+            </Controls:CustomFlexLayout.ItemTemplate>
+
+
+        </Controls:CustomFlexLayout>
 
     </StackLayout>
 </ContentPage>

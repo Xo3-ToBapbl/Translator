@@ -100,6 +100,8 @@ namespace Translator.ViewModels
         public WordViewModel(AddWordTypes addWordTypes)
         {
             AddWordTypes = addWordTypes;
+
+
         }
 
 
@@ -107,6 +109,7 @@ namespace Translator.ViewModels
         {
             var beforeTranslating = Original;
             await Task.Delay(throttlePeriod);
+
             if (beforeTranslating == Original)
             {
                 IsBusy = true;
@@ -115,7 +118,7 @@ namespace Translator.ViewModels
                     .GetTranslation(Original);
 
                 if (!translation.HasError)
-                    CurrentTranslation = translation.TranslationsString;
+                    CurrentTranslation = translation.Text;
 
                 IsBusy = false;
             }
