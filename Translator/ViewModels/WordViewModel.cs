@@ -117,6 +117,25 @@ namespace Translator.ViewModels
                     CurrentTranslation = string.Empty;
                     return false;
                 });
+
+            DeleteTranslationCommand = new Command<TranslationViewModel>(
+                execute: (viewModel) =>
+                {
+                    Translations.Remove(viewModel);
+                });
+
+            UpdateTranslationCommand = new Command<TranslationViewModel>(
+                execute: (viewModel) =>
+                {
+                    CurrentTranslation = viewModel.Value;
+                    Translations.Remove(viewModel);
+                });
+
+            CancelWordCommand = new Command(
+                execute: () =>
+                {
+                    Navigation.PopModalAsync();
+                });
         }
 
 

@@ -11,10 +11,10 @@ namespace Translator.Controls
     {
         public static readonly BindableProperty ItemTemplateProperty =
             BindableProperty
-                .CreateAttached(nameof(ItemTemplateProperty), 
-                                typeof(DataTemplate),
-                                typeof(CustomFlexLayout<T>), 
-                                default(DataTemplate));
+                .CreateAttached(propertyName: nameof(ItemTemplateProperty),
+                                returnType: typeof(DataTemplate),
+                                declaringType: typeof(CustomFlexLayout<T>),
+                                defaultValue: default(DataTemplate));
 
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty

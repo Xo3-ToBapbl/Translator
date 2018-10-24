@@ -133,7 +133,8 @@
                                    VerticalOptions="Center">
 
                                 <Label.GestureRecognizers>
-                                    <!--<TapGestureRecognizer Tapped="labelTranslation_Tapped"/>-->
+                                    <TapGestureRecognizer Tapped="LabelTranslation_Tapped"
+                                                          CommandParameter="{Binding .}"/>
                                 </Label.GestureRecognizers>
                             </Label>
 
@@ -144,7 +145,8 @@
                                    VerticalOptions="Center">
 
                                 <Image.GestureRecognizers>
-                                    <!--<TapGestureRecognizer Tapped="imageDeleteTranslation_Tapped"/>-->
+                                    <TapGestureRecognizer Tapped="ImageDeleteTranslation_Tapped"
+                                                          CommandParameter="{Binding .}"/>
                                 </Image.GestureRecognizers>
                             </Image>
 
