@@ -167,10 +167,10 @@ namespace Translator.ViewModels
         {
             DateAdded = DateTime.Now;
 
-            //if (this.Id == 0)
-            //    App.WordsRepository.Add(this.ToModel());
-            //else
-            //    App.WordsRepository.Update(this.ToModel());
+            if (this.Id == 0)
+                App.WordsRepository.Add(this.ToModel());
+            else
+                App.WordsRepository.Update(this.ToModel());
 
             await Navigation.PopModalAsync();
         }
@@ -192,6 +192,10 @@ namespace Translator.ViewModels
                 {
                     Translations.Clear();
                     AddTranslation(translation.Text);
+                }
+                else
+                {
+                    ShowPopUpAlert(translation.Message);
                 }
 
                 IsBusy = false;

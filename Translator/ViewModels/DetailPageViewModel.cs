@@ -157,12 +157,12 @@ namespace Translator.ViewModels
                     break;
                 case WordsFilterTypes.Date:
                     allItems = allItems
-                        .OrderBy(item => item.DateAdded)
+                        .OrderByDescending(item => item.DateAdded)
                         .ToList();
                     break;
                 case WordsFilterTypes.DateDescending:
                     allItems = allItems
-                        .OrderByDescending(item => item.DateAdded)
+                        .OrderBy(item => item.DateAdded)
                         .ToList();
                     break;
                 case WordsFilterTypes.None:

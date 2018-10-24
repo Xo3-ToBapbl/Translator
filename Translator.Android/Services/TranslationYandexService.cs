@@ -56,12 +56,12 @@ namespace Translator.Droid.Services
             jsonSerializer = new JsonSerializer();
             uriBuilder = new UriBuilder
             {
-                Scheme = "https",
-                Host = "translate.yandex.net",
-                Path = "/api/v1.5/tr.json/translate"
+                Scheme = ConstantService.YandexAPI.Scheme,
+                Host = ConstantService.YandexAPI.Host,
+                Path = ConstantService.YandexAPI.Path
             };
 
-            baseQuery = ConstantService.AppKeys.YandexQueryKeys.ToQueryString();
+            baseQuery = ConstantService.YandexAPI.QueryKeys.ToQueryString();
         }
 
 

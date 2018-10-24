@@ -17,6 +17,7 @@ namespace Translator.ViewModels.Validations
 
             RuleFor(viewModel => viewModel)
                 .Must(viewModel => !viewModel.RootViewModel.Items.Any(element => element.Original == viewModel.Original))
+                .When(viewModel=>viewModel.Id==0)
                 .WithMessage(ConstantService.ErrorMessages.WordAlreadyExist);
 
             RuleFor(viewModel => viewModel.Translations)

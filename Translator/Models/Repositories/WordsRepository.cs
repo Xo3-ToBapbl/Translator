@@ -10,7 +10,6 @@ namespace Translator.Models.Repositories
     public class WordsRepository
     {
         private readonly SQLiteConnection dataBase;
-        private string originalWords;
         private string translations;
 
 
@@ -21,7 +20,6 @@ namespace Translator.Models.Repositories
             if (CreateTables() == CreateTableResult.Created)
                 InitializeDataBase();
 
-            originalWords = ConstantService.DataBase.TableNames.OriginalWords;
             translations = ConstantService.DataBase.TableNames.Translations;
         }
 
