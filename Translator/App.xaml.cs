@@ -1,6 +1,7 @@
 ﻿using System;
 using Translator.Interfaces;
 using Translator.Models.Repositories;
+using Translator.Pages;
 using Translator.Pages.MasterPages;
 using Translator.Services;
 using Xamarin.Forms;
@@ -24,7 +25,8 @@ namespace Translator
 
             WordsRepository = new WordsRepository(dataBasePath);
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new LoginPage();
         }
 
 

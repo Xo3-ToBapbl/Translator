@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Translator.ViewModels"
+             x:Class="Translator.Pages.LoginPage"
+             BackgroundColor="{StaticResource ColorBackgroundDark}">
+
+    <ContentPage.BindingContext>
+        <local:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 Spacing="15">
+
+        <Button Text="FaceBook Login"
+                BackgroundColor="{StaticResource ColorBtnBackgroundYellow}"
+                TextColor="Black"
+                HeightRequest="50"
+                CornerRadius="25"
+                WidthRequest="180"
+                Command="{Binding FacebookLoginCommand}"/>
+
+        <Button Text="Пропустить"
+                BackgroundColor="{StaticResource ColorBackgroundLight}"
+                BorderColor="{StaticResource ColorBtnBackgroundYellow}"
+                TextColor="{StaticResource ColorBtnBackgroundYellow}"
+                BorderWidth="1"
+                HeightRequest="40"
+                CornerRadius="20"
+                Command="{Binding CancelCommand}"/>
+
+    </StackLayout>
+</ContentPage>
