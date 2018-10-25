@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:Controls="clr-namespace:Translator.Controls"
+                 x:Class="Translator.Pages.PopUpPages.SaveNewWordPopUpPage">
+
+    <Frame Style="{StaticResource FramePopUp}">
+
+        <StackLayout Spacing="15">
+
+            <Label x:Name="labelErrorMessage"
+                   Style="{StaticResource LabelPopUp}"/>
+
+            <Controls:CustomButton x:Name="btnClose"
+                                   Style="{StaticResource BtnPopUp}"
+                                   Text="Ok"
+                                   WidthRequest="40"
+                                   HorizontalOptions="EndAndExpand"
+                                   Clicked="BtnClose_Clicked"/>
+
+        </StackLayout>
+    </Frame>
+</Pages:PopupPage>

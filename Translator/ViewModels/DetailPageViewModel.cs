@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Translator.Enums;
 using Translator.Extensions;
 using Translator.Interfaces;
+using Translator.Pages;
 using Translator.Pages.PopUpPages;
 using Translator.Services;
 using Xamarin.Forms;
@@ -31,6 +32,14 @@ namespace Translator.ViewModels
                 this.OnPropertyChanged();
             }
         }
+        public WordViewModel SelectedWord
+        {
+            set
+            {
+                if (value != null)
+                    ShowWordPage(AddWordTypes.Manual, value);
+            }
+        }
         public string SearchText
         {
             set
@@ -43,7 +52,6 @@ namespace Translator.ViewModels
                 }
             }
         }
-
         public double AddNewWordButtonOpacity
         {
             get => addNewWordButtonOpacity;
@@ -56,6 +64,7 @@ namespace Translator.ViewModels
             }
         }
 
+        public INavigation Navigation { get; set; }
         public ICommand ToolbarFilterCommand { get; set; }
         public ICommand SortWordsCommand { get; set; }
         public ICommand AddNewWordButtonCommand { get; set; }
@@ -69,8 +78,6 @@ namespace Translator.ViewModels
             AddNewWordButtonCommand = new Command(
                 execute: async () =>
                 {
-                    var res = await DependencyService.Get<ITranslationRemoteService>().GetTranslation("home");
-
                     AddNewWordButtonOpacity = ConstantService.Opacityes.FullVisible;
 
                     var addNewWordMenu = new AddNewWordMenu(this);
@@ -81,6 +88,8 @@ namespace Translator.ViewModels
                 execute: async (addWordsType) =>
                 {
                     await PopupNavigation.Instance.PopAsync();
+
+                    ShowWordPage(addWordsType);
                 });
 
             ToolbarFilterCommand = new Command(
@@ -112,6 +121,13 @@ namespace Translator.ViewModels
             SortWords(GetWordsFilterType());
         }
 
+        private async void ShowWordPage(AddWordTypes addWordsType, WordViewModel viewModel=null )
+        {
+            if (viewModel == null)
+                viewModel=new WordViewModel(addWordsType, this);
+
+            await Navigation.PushModalAsync(new WordPage(viewModel));
+        }
 
         private WordsFilterTypes GetWordsFilterType()
         {
@@ -141,12 +157,12 @@ namespace Translator.ViewModels
                     break;
                 case WordsFilterTypes.Date:
                     allItems = allItems
-                        .OrderBy(item => item.DateAdded)
+                        .OrderByDescending(item => item.DateAdded)
                         .ToList();
                     break;
                 case WordsFilterTypes.DateDescending:
                     allItems = allItems
-                        .OrderByDescending(item => item.DateAdded)
+                        .OrderBy(item => item.DateAdded)
                         .ToList();
                     break;
                 case WordsFilterTypes.None:

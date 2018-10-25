@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Translator.Enums;
 using Translator.Models;
 using Translator.ViewModels;
 
@@ -11,13 +12,12 @@ namespace Translator.Extensions
     {
         public static WordViewModel ToViewModel(this Word word, DetailPageViewModel rootViewModel)
         {
-            return new WordViewModel
+            return new WordViewModel(AddWordTypes.Manual, rootViewModel)
             {
                 Id = word.Id,
                 Original = word.Original,
                 DateAdded = word.DateAdded,
-                Translations = word.Translations.Select(item => item.ToViewModel()).ToList(),
-                RootViewModel = rootViewModel,
+                Translations = word.Translations.Select(item => item.ToViewModel()).ToObservableCollection(),
             };
         }
 

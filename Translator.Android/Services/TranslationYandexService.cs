@@ -14,6 +14,7 @@ using Android.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Translator.Droid.Services;
+using Translator.Extensions;
 using Translator.Interfaces;
 using Translator.Models;
 using Translator.Services;
@@ -38,25 +39,47 @@ namespace Translator.Droid.Services
         private string baseQuery;
         private JsonSerializer jsonSerializer;
 
+        private bool IsConnected
+        {
+            get
+            {
+                var connectivityManager = (ConnectivityManager) Android.App.Application
+                    .Context.GetSystemService(Android.App.Application.ConnectivityService);
+
+                return connectivityManager.ActiveNetworkInfo.IsConnected;
+            }
+        }
+
 
         public TranslationYandexService()
         {
             jsonSerializer = new JsonSerializer();
             uriBuilder = new UriBuilder
             {
-                Scheme = "https",
-                Host = "translate.yandex.net",
-                Path = "/api/v1.5/tr.json/translate"
+                Scheme = ConstantService.YandexAPI.Scheme,
+                Host = ConstantService.YandexAPI.Host,
+                Path = ConstantService.YandexAPI.Path
             };
 
-            baseQuery =
-                "?key=trnsl.1.1.20181023T063802Z.4e09c09340d7c4b3.3865608bacb4685a4ef5b1da339c5958d758324b&lang=en-ru&text=";
+            baseQuery = ConstantService.YandexAPI.QueryKeys.ToQueryString();
         }
 
 
         public async Task<TranslationResponse> GetTranslation(string translatedString)
         {
-            if (string.IsNullOrEmpty(translatedString) || !IsConnected) return null;
+            if (string.IsNullOrWhiteSpace(translatedString))
+                return new TranslationResponse()
+                {
+                    HasError = true,
+                    Message = ConstantService.ErrorMessages.EmptyTranslatedString,
+                };
+
+            if (!IsConnected)
+                return new TranslationResponse()
+                {
+                    HasError = true,
+                    Message = ConstantService.ErrorMessages.HasNoConnection,
+                };
 
             WebRequest request = GetRequest(translatedString);
             YandexResponce yandexResponce = await GetResponce(request);
@@ -73,19 +96,8 @@ namespace Translator.Droid.Services
             return new TranslationResponse()
             {
                 HasError = false,
-                Text = yandexResponce.Text,
+                Text = yandexResponce.Text.First(),
             };
-        }
-
-        private bool IsConnected
-        {
-            get
-            {
-                var connectivityManager = (ConnectivityManager) Android.App.Application
-                    .Context.GetSystemService(Android.App.Application.ConnectivityService);
-
-                return connectivityManager.ActiveNetworkInfo.IsConnected;
-            }
         }
 
         private WebRequest GetRequest(string translatedString)

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:Translator.Controls"
+             xmlns:ViewModels="clr-namespace:Translator.ViewModels"
+             x:Class="Translator.Pages.WordPage"
+             BackgroundColor="{StaticResource ColorBackgroundDark}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="customEntryStyle" TargetType="Controls:CustomEntry">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource ColorTxtPlaceholder}"/>
+                <Setter Property="FontSize" Value="{StaticResource SizeTxtCommon}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="imgCancel" TargetType="Image">
+                <Setter Property="Source" Value="cancelWhite64px.png"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="HeightRequest" Value="19"/>
+                <Setter Property="WidthRequest" Value="19"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Orientation="Vertical"
+                 Padding="15"
+                 Spacing="15">
+
+        <StackLayout Orientation="Horizontal">
+
+            <Image x:Name="imgBtnCancelWord"
+                   Style="{StaticResource imgCancel}"
+                   HorizontalOptions="Start"
+                   Margin="0,0,15,0">
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CancelWordCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label Text="Новое слово"
+                    FontSize="{StaticResource SizeTxtCommon}"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+
+            <Controls:CustomButton x:Name="btnSaveWord"
+                                   Text="Сохранить"
+                                   TextColor="Black"
+                                   BackgroundColor="{StaticResource ColorBtnWordOperationBackground}"
+                                   HeightRequest="32"
+                                   WidthRequest="105"
+                                   BorderRadius="16"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="EndAndExpand"
+                                   Command="{Binding SaveWordCommand}">
+            </Controls:CustomButton>
+
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Controls:CustomEntry x:Name="entryOriginal"
+                                Placeholder="Слово"
+                                Style="{StaticResource customEntryStyle}"
+                                Text="{Binding Original}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="True"
+                               WidthRequest="24"
+                               HeightRequest="24"
+                               VerticalOptions="Center"
+                               HorizontalOptions="End"
+                               Color="WhiteSmoke"
+                               Margin="0"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+
+            <Controls:CustomEntry x:Name="entryCurrentTranslation"
+                                    Placeholder="Перевод"
+                                    Style="{StaticResource customEntryStyle}"
+                                    Text="{Binding CurrentTranslation}"/>
+
+            <Image x:Name="imgBtnActCurrentTranlation"
+                    Source="addTranslation64px.png"
+                    BackgroundColor="Transparent"
+                    HeightRequest="24"
+                    WidthRequest="24"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddTranslationCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+
+        <Controls:CustomFlexLayout x:TypeArguments="ViewModels:TranslationViewModel" 
+                                   x:Name="flexTranslations"
+                                   Direction="Row"
+                                   Wrap="Wrap"
+                                   ItemsSource="{Binding Translations}">
+
+            <Controls:CustomFlexLayout.ItemTemplate>
+                <DataTemplate>
+
+                    <Frame HeightRequest="32"
+                           CornerRadius="16"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           Margin="0,0,3,3"    
+                           Padding="10,0,10,0"
+                           BackgroundColor="{StaticResource ColorBtnWordOperationBackground}">
+
+                        <StackLayout Orientation="Horizontal" 
+                                     Padding="0">
+
+                            <Label x:Name="LabelTranslation"
+                                   Text="{Binding Value}"
+                                   TextColor="Black"
+                                   Margin="0,0,3,4"
+                                   FontSize="17"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center">
+
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LabelTranslation_Tapped"
+                                                          CommandParameter="{Binding .}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Image x:Name="imageDeleteTranslation"
+                                   Source="deleteTranslation24px.png"
+                                   HeightRequest="12"
+                                   WidthRequest="12"
+                                   VerticalOptions="Center">
+
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ImageDeleteTranslation_Tapped"
+                                                          CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                        </StackLayout>
+                    </Frame>
+
+                </DataTemplate>
+            </Controls:CustomFlexLayout.ItemTemplate>
+
+        </Controls:CustomFlexLayout>
+
+    </StackLayout>
+</ContentPage>
