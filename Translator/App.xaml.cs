@@ -25,7 +25,6 @@ namespace Translator
 
             WordsRepository = new WordsRepository(dataBasePath);
 
-            //MainPage = new MainPage();
             MainPage = new LoginPage();
         }
 
