@@ -46,6 +46,7 @@ namespace Translator.ViewModels
                 });
         }
 
+
         private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs e)
         {
             if (sender is OAuth2Authenticator authenticator)
@@ -80,6 +81,5 @@ namespace Translator.ViewModels
 
             await PopupNavigation.Instance.PushAsync(page);
         }
-
     }
 }
