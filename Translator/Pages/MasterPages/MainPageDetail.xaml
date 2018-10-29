@@ -38,26 +38,25 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.View>
-                                <ContentView BackgroundColor="{StaticResource ColorBackgroundLight}"
-                                                 Padding="5">
-                                    <Label>
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <FormattedString.Spans>
-                                                    <Span Text="{Binding Original}"
-                                                              FontSize="{StaticResource SizeTxtCommon}"
-                                                              LineHeight="4"/>
-                                                    <Span Text="&#10;"/>
-                                                    <Span Text="{Binding TranslationsString}"
-                                                              FontSize="{StaticResource SizeTxtAdditional}"
-                                                              TextColor="LightGray"/>
-                                                </FormattedString.Spans>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                </ContentView>
-                            </ViewCell.View>
+                            <ContentView BackgroundColor="{StaticResource ColorBackgroundLight}"
+                                         Padding="5">
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="{Binding Original}"
+                                                      FontSize="{StaticResource SizeTxtCommon}"
+                                                      LineHeight="4"/>
+                                                <Span Text="&#10;"/>
+                                                <Span Text="{Binding TranslationsString}"
+                                                      FontSize="{StaticResource SizeTxtAdditional}"
+                                                      TextColor="LightGray"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                            </ContentView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

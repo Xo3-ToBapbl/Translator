@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace Translator.Pages.PopUpPages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SaveNewWordPopUpPage : PopupPage
+	public partial class ErrorsPopUpPage : PopupPage
     {
-	    public SaveNewWordPopUpPage(string errorMessage)
+	    public ErrorsPopUpPage(string errorMessage)
 	    {
 	        InitializeComponent();
 

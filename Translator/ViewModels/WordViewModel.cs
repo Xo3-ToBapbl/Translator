@@ -158,7 +158,7 @@ namespace Translator.ViewModels
 
         private async void ShowPopUpAlert(string errorMessage)
         {
-            var page = new SaveNewWordPopUpPage(errorMessage);
+            var page = new ErrorsPopUpPage(errorMessage);
 
             await PopupNavigation.Instance.PushAsync(page);
         }

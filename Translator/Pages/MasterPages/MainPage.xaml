@@ -25,7 +25,7 @@
     <NavigationPage BackgroundColor="{StaticResource ColorBackgroundLight}"
                     BarBackgroundColor="{StaticResource ColorBackgroundLight}">
       <x:Arguments>
-        <pages:MainPageDetail />
+        <pages:MainPageDetail x:Name="MainPageDetail"/>
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

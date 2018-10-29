@@ -7,6 +7,17 @@ namespace Translator.Services
 {
     public static class ConstantService
     {
+        public const string AppName = "Translator";
+
+        public class FacebookAPI
+        {
+            public const string ClientId = "341627873076993";
+            public const string Scope = "email";
+            public const string AuthorizeUrl = "https://www.facebook.com/dialog/oauth/";
+            public const string RedirectUrl = "https://www.facebook.com/connect/login_success.html";
+            public const string DataRequestUrl = "https://graph.facebook.com/me";
+        }
+
         public class YandexAPI
         {
             public const string Scheme = "https";
@@ -51,6 +62,7 @@ namespace Translator.Services
             public const string EmptyWord = "Вы не ввели слово.";
             public const string EmptyTranslation = "Вы не ввели перевод.";
             public const string WordAlreadyExist = "Данное слово уже содержится в словаре.";
+            public const string AuthenticationError = "Ошибка аутентификации.";
         }
     }
 }

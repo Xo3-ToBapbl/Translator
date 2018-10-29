@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Translator.Views
+namespace Translator.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TranslationView : ContentView
+    public partial class LoginPage : ContentPage
     {
-        public TranslationView()
+        public LoginPage()
         {
             InitializeComponent();
         }
