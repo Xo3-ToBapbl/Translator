@@ -2,6 +2,7 @@
 <Pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
                  xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:localEnums="clr-namespace:Translator.Enums"
+                 xmlns:Extensions="clr-namespace:Translator.Extensions"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  x:Class="Translator.Pages.PopUpPages.FilterWordsMenu"
                  BackgroundColor="Transparent">
@@ -22,22 +23,22 @@
                  Spacing="1"
                  BackgroundColor="{StaticResource ColorBackgroundDark}">
 
-        <Label Text="Сортировать слова:"
+        <Label Text="{Extensions:Localization LabelSortWordsText}"
                Style="{StaticResource MenuLabel}"/>
 
-        <Button Text="по алфавиту A..Z"
+        <Button Text="{Extensions:Localization ButtonAZText}"
                 Style="{StaticResource Key=FilterMenuButton}"
                 CommandParameter="{x:Static localEnums:WordsFilterTypes.Alphabetical}"/>
 
-        <Button Text="по алфавиту Z..A"
+        <Button Text="{Extensions:Localization ButtonZAText}"
                 Style="{StaticResource Key=FilterMenuButton}"
                 CommandParameter="{x:Static localEnums:WordsFilterTypes.AlphabeticalDescending}"/>
 
-        <Button Text="от новых к старым"
+        <Button Text="{Extensions:Localization ButtonNewOldText}"
                 Style="{StaticResource Key=FilterMenuButton}"
                 CommandParameter="{x:Static localEnums:WordsFilterTypes.Date}"/>
 
-        <Button Text="от старых к новым"
+        <Button Text="{Extensions:Localization ButtonOldNewText}"
                 Style="{StaticResource Key=FilterMenuButton}"
                 CommandParameter="{x:Static localEnums:WordsFilterTypes.DateDescending}"/>
 

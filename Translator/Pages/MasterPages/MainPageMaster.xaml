@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Extensions="clr-namespace:Translator.Extensions"
              x:Class="Translator.Pages.MasterPages.MainPageMaster"
              Title="Main Page"
              BackgroundColor="{StaticResource ColorBackgroundDark}">
@@ -24,13 +25,13 @@
                  Spacing="1">
 
         <Button Style="{StaticResource Key=MasterPageButton}"
-                Text="Добавить"/>
+                Text="{Extensions:Localization ButtonAddText}"/>
         <Button Style="{StaticResource Key=MasterPageButton}"
-                Text="Настройки"/>
+                Text="{Extensions:Localization ButtonSettingsText}"/>
         <Button Style="{StaticResource Key=MasterPageButton}"
-                Text="Статистика"/>
+                Text="{Extensions:Localization ButtonStatisticsText}"/>
         <Button Style="{StaticResource Key=MasterPageButton}"
-                Text="О приложении"/>
+                Text="{Extensions:Localization ButtonAboutAppText}"/>
 
     </StackLayout>
 

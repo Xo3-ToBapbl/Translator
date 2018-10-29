@@ -117,10 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ButtonAboutAppText" xml:space="preserve">
+    <value>О приложении</value>
+  </data>
+  <data name="ButtonAddText" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="ButtonAZText" xml:space="preserve">
+    <value>По алфавиту А..Я</value>
+  </data>
   <data name="ButtonFacebookText" xml:space="preserve">
     <value>Facebook логин</value>
   </data>
+  <data name="ButtonManuallyText" xml:space="preserve">
+    <value>Вручную</value>
+  </data>
+  <data name="ButtonNewOldText" xml:space="preserve">
+    <value>От новых к старым</value>
+  </data>
+  <data name="ButtonOldNewText" xml:space="preserve">
+    <value>От старых к новым</value>
+  </data>
+  <data name="ButtonOnlineText" xml:space="preserve">
+    <value>Интернет</value>
+  </data>
+  <data name="ButtonSettingsText" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="ButtonSkipAuthText" xml:space="preserve">
     <value>Пропустить</value>
+  </data>
+  <data name="ButtonStatisticsText" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="ButtonZAText" xml:space="preserve">
+    <value>По алфавиту Я..А</value>
+  </data>
+  <data name="LabelAddWordText" xml:space="preserve">
+    <value>Добавить слово</value>
+  </data>
+  <data name="LabelSortWordsText" xml:space="preserve">
+    <value>Сортировать слова по:</value>
   </data>
 </root>

@@ -12,12 +12,15 @@ namespace Translator
 {
     public partial class App : Application
     {
+        public static string Localization;
         public static WordsRepository WordsRepository { get; private set; }
 
 
         public App()
         {
             InitializeComponent();
+
+            Localization = Constants.Localization.Ru;
 
             string dataBasePath = DependencyService
                 .Get<IFilePathService>()

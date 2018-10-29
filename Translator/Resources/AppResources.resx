@@ -117,10 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ButtonAboutAppText" xml:space="preserve">
+    <value>About application</value>
+  </data>
+  <data name="ButtonAddText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ButtonAZText" xml:space="preserve">
+    <value>Alphabetically A..Z</value>
+  </data>
   <data name="ButtonFacebookText" xml:space="preserve">
     <value>Facebook login</value>
   </data>
+  <data name="ButtonManuallyText" xml:space="preserve">
+    <value>Manually</value>
+  </data>
+  <data name="ButtonNewOldText" xml:space="preserve">
+    <value>From new to old</value>
+  </data>
+  <data name="ButtonOldNewText" xml:space="preserve">
+    <value>From old to new</value>
+  </data>
+  <data name="ButtonOnlineText" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="ButtonSettingsText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="ButtonSkipAuthText" xml:space="preserve">
     <value>Skip</value>
+  </data>
+  <data name="ButtonStatisticsText" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="ButtonZAText" xml:space="preserve">
+    <value>Alphabetically Z..A</value>
+  </data>
+  <data name="LabelAddWordText" xml:space="preserve">
+    <value>Add word:</value>
+  </data>
+  <data name="LabelSortWordsText" xml:space="preserve">
+    <value>Sort words:</value>
   </data>
 </root>
