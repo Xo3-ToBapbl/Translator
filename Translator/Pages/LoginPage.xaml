@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Translator.ViewModels"
+             xmlns:Extensions="clr-namespace:Translator.Extensions"
              x:Class="Translator.Pages.LoginPage"
              BackgroundColor="{StaticResource ColorBackgroundDark}">
 
@@ -13,7 +14,7 @@
                  HorizontalOptions="Center"
                  Spacing="15">
 
-        <Button Text="FaceBook Login"
+        <Button Text="{Extensions:Localization ButtonFacebookText}"
                 BackgroundColor="{StaticResource ColorBtnBackgroundYellow}"
                 TextColor="Black"
                 HeightRequest="50"
@@ -21,7 +22,7 @@
                 WidthRequest="180"
                 Command="{Binding FacebookLoginCommand}"/>
 
-        <Button Text="Пропустить"
+        <Button Text="{Extensions:Localization ButtonSkipAuthText}"
                 BackgroundColor="{StaticResource ColorBackgroundLight}"
                 BorderColor="{StaticResource ColorBtnBackgroundYellow}"
                 TextColor="{StaticResource ColorBtnBackgroundYellow}"
