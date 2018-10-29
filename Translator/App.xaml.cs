@@ -21,7 +21,7 @@ namespace Translator
 
             string dataBasePath = DependencyService
                 .Get<IFilePathService>()
-                .GetFilePath(ConstantService.DataBase.Name);
+                .GetFilePath(Constants.DataBase.Name);
 
             WordsRepository = new WordsRepository(dataBasePath);
 

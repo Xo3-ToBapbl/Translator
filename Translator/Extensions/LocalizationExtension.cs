@@ -14,7 +14,7 @@ namespace Translator.Extensions
     public class LocalizationExtension: IMarkupExtension
     {
         private static readonly ResourceManager ResourceManager =new ResourceManager(
-            ConstantService.AppResourcePath,
+            Constants.AppResourcePath,
             IntrospectionExtensions.GetTypeInfo(typeof(LocalizationExtension)).Assembly);
 
         private readonly CultureInfo cultureInfo;

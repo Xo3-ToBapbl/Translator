@@ -25,10 +25,10 @@ namespace Translator.ViewModels
                 execute: () =>
                 {
                     var authenticator = new OAuth2Authenticator(
-                        ConstantService.FacebookAPI.ClientId,
-                        ConstantService.FacebookAPI.Scope,
-                        new Uri(ConstantService.FacebookAPI.AuthorizeUrl),
-                        new Uri(ConstantService.FacebookAPI.RedirectUrl),
+                        Constants.FacebookAPI.ClientId,
+                        Constants.FacebookAPI.Scope,
+                        new Uri(Constants.FacebookAPI.AuthorizeUrl),
+                        new Uri(Constants.FacebookAPI.RedirectUrl),
                         null,
                         false);
 
@@ -57,7 +57,7 @@ namespace Translator.ViewModels
 
             if (e.IsAuthenticated)
             {
-                var request = new OAuth2Request("GET", new Uri(ConstantService.FacebookAPI.DataRequestUrl), null,e.Account);
+                var request = new OAuth2Request("GET", new Uri(Constants.FacebookAPI.DataRequestUrl), null,e.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
@@ -68,11 +68,11 @@ namespace Translator.ViewModels
                 }
                 else
                     OnAuthError(null, 
-                        new AuthenticatorErrorEventArgs(ConstantService.ErrorMessages.AuthenticationError));
+                        new AuthenticatorErrorEventArgs(Constants.ErrorMessages.AuthenticationError));
             }
             else
                 OnAuthError(null, 
-                    new AuthenticatorErrorEventArgs(ConstantService.ErrorMessages.AuthenticationError));
+                    new AuthenticatorErrorEventArgs(Constants.ErrorMessages.AuthenticationError));
         }
 
         private async void OnAuthError(object sender, AuthenticatorErrorEventArgs e)

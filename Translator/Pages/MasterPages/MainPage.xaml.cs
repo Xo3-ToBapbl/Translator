@@ -17,7 +17,7 @@ namespace Translator.Pages.MasterPages
         {
             InitializeComponent();
 
-            MainPageDetail.Title = ConstantService.AppName;
+            MainPageDetail.Title = Constants.AppName;
 
             if (user != null)
                 MainPageDetail.Title = user.Name;

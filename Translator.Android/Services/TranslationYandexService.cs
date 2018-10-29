@@ -56,12 +56,12 @@ namespace Translator.Droid.Services
             jsonSerializer = new JsonSerializer();
             uriBuilder = new UriBuilder
             {
-                Scheme = ConstantService.YandexAPI.Scheme,
-                Host = ConstantService.YandexAPI.Host,
-                Path = ConstantService.YandexAPI.Path
+                Scheme = Constants.YandexAPI.Scheme,
+                Host = Constants.YandexAPI.Host,
+                Path = Constants.YandexAPI.Path
             };
 
-            baseQuery = ConstantService.YandexAPI.QueryKeys.ToQueryString();
+            baseQuery = Constants.YandexAPI.QueryKeys.ToQueryString();
         }
 
 
@@ -71,14 +71,14 @@ namespace Translator.Droid.Services
                 return new TranslationResponse()
                 {
                     HasError = true,
-                    Message = ConstantService.ErrorMessages.EmptyTranslatedString,
+                    Message = Constants.ErrorMessages.EmptyTranslatedString,
                 };
 
             if (!IsConnected)
                 return new TranslationResponse()
                 {
                     HasError = true,
-                    Message = ConstantService.ErrorMessages.HasNoConnection,
+                    Message = Constants.ErrorMessages.HasNoConnection,
                 };
 
             WebRequest request = GetRequest(translatedString);
@@ -89,7 +89,7 @@ namespace Translator.Droid.Services
                 return new TranslationResponse()
                 {
                     HasError = yandexResponce.HasError,
-                    Message = ConstantService.ErrorMessages.ServerError,
+                    Message = Constants.ErrorMessages.ServerError,
                 };
             }
 

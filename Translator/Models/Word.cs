@@ -7,7 +7,7 @@ using Translator.Services;
 
 namespace Translator.Models
 {
-    [Table(ConstantService.DataBase.TableNames.OriginalWords)]
+    [Table(Constants.DataBase.TableNames.OriginalWords)]
     public class Word
     {
         [PrimaryKey, AutoIncrement]
