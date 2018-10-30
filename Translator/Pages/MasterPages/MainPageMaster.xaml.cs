@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using Translator.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,6 +18,9 @@ namespace Translator.Pages.MasterPages
         public MainPageMaster()
         {
             InitializeComponent();
+
+            var viewModel = new MasterPageViewModel(this.Navigation);
+            this.BindingContext = viewModel;
         }
 
         private void MenuItemTapped(object sender, ItemTappedEventArgs e)

@@ -73,12 +73,12 @@ namespace Translator.ViewModels
 
         public DetailPageViewModel()
         {
-            addNewWordButtonOpacity = ConstantService.Opacityes.HalfTransperent;
+            addNewWordButtonOpacity = Constants.Opacityes.HalfTransperent;
 
             AddNewWordButtonCommand = new Command(
                 execute: async () =>
                 {
-                    AddNewWordButtonOpacity = ConstantService.Opacityes.FullVisible;
+                    AddNewWordButtonOpacity = Constants.Opacityes.FullVisible;
 
                     var addNewWordMenu = new AddNewWordMenu(this);
                     await PopupNavigation.Instance.PushAsync(addNewWordMenu);
@@ -104,7 +104,7 @@ namespace Translator.ViewModels
                 {
                     SortWords(wordsFilterTypes);
                     App.Current
-                       .Properties[ConstantService.AppKeys.WordsFilterType] = wordsFilterTypes.ToString();
+                       .Properties[Constants.AppKeys.WordsFilterType] = wordsFilterTypes.ToString();
 
                     PopupNavigation.Instance.PopAsync();
                 });
@@ -131,7 +131,7 @@ namespace Translator.ViewModels
 
         private WordsFilterTypes GetWordsFilterType()
         {
-            string wordsFilterKey = ConstantService.AppKeys.WordsFilterType;
+            string wordsFilterKey = Constants.AppKeys.WordsFilterType;
             if (!App.Current.Properties.TryGetValue(wordsFilterKey, out var wordsFilter))
                 return WordsFilterTypes.None;
 

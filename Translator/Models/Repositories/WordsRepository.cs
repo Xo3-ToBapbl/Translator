@@ -20,7 +20,7 @@ namespace Translator.Models.Repositories
             if (CreateTables() == CreateTableResult.Created)
                 InitializeDataBase();
 
-            translations = ConstantService.DataBase.TableNames.Translations;
+            translations = Constants.DataBase.TableNames.Translations;
         }
 
 

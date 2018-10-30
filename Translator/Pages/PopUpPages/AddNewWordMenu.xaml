@@ -3,6 +3,7 @@
                  xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  xmlns:localEnums="clr-namespace:Translator.Enums"
+                 xmlns:Extensions="clr-namespace:Translator.Extensions"
                  x:Class="Translator.Pages.PopUpPages.AddNewWordMenu"
                  Padding="0,0,0,105"
                  BackgroundColor="Transparent">
@@ -23,14 +24,14 @@
                  Spacing="1"
                  BackgroundColor="{StaticResource ColorBackgroundDark}">
 
-        <Label Text="Добавить слово:"
+        <Label Text="{Extensions:Localization LabelAddWordText}"
                Style="{StaticResource MenuLabel}"/>
-               
-        <Button Text="вручную"
+
+        <Button Text="{Extensions:Localization ButtonManuallyText}"
                 Style="{StaticResource AddNewWordMenuButton}"
                 CommandParameter="{x:Static localEnums:AddWordTypes.Manual}"/>
 
-        <Button Text="интернет"
+        <Button Text="{Extensions:Localization ButtonOnlineText}"
                 Style="{StaticResource AddNewWordMenuButton}"
                 CommandParameter="{x:Static localEnums:AddWordTypes.RemoteAPI}"/>
 

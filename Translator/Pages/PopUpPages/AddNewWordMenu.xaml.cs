@@ -28,7 +28,7 @@ namespace Translator.Pages.PopUpPages
 	    {
 	        base.OnDisappearing();
 
-	        viewModel.AddNewWordButtonOpacity = ConstantService.Opacityes.HalfTransperent;
+	        viewModel.AddNewWordButtonOpacity = Constants.Opacityes.HalfTransperent;
 	    }
 	}
 }

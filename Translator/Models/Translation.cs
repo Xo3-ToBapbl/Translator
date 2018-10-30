@@ -7,7 +7,7 @@ using Translator.Services;
 
 namespace Translator.Models
 {
-    [Table(ConstantService.DataBase.TableNames.Translations)]
+    [Table(Constants.DataBase.TableNames.Translations)]
     public class Translation
     {
         [PrimaryKey, AutoIncrement]

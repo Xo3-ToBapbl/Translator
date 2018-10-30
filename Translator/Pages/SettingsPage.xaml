@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Extensions="clr-namespace:Translator.Extensions"
+             x:Class="Translator.Pages.SettingsPage">
+
+    <ListView ItemsSource="{Binding Languages}"
+              SelectedItem="{Binding ChoosedLanguage}"
+              ItemTapped="Handle_ItemTapped"
+              VerticalOptions="FillAndExpand"
+              BackgroundColor="{StaticResource ColorBackgroundDark}">
+
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal"
+                         Padding="13">
+
+                <Image Style="{StaticResource ImgCancel}"
+                       Margin="0,0,15,0">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CancelSettingsCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label Text="{Extensions:Localization LabelChooseLanguageText}"
+                       Style="{StaticResource LabelTitlePage}"/>
+
+            </StackLayout>
+        </ListView.Header>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ContentView BackgroundColor="{StaticResource ColorBackgroundLight}"
+                                 Margin="3,0,3,3"
+                                 Padding="5"
+                                 HeightRequest="50">
+
+                        <Label Text="{Binding Value}"
+                               VerticalTextAlignment="Center"
+                               TextColor="White"
+                               FontSize="{StaticResource SizeTxtCommon}"/>
+
+                    </ContentView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+</ContentPage>
