@@ -159,4 +159,16 @@
   <data name="LabelSortWordsText" xml:space="preserve">
     <value>Сортировать слова по:</value>
   </data>
+  <data name="ButtonSaveWordText" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="EntryOriginalPlaceholder" xml:space="preserve">
+    <value>Слово</value>
+  </data>
+  <data name="EntryTranslationPlaceholder" xml:space="preserve">
+    <value>Перевод</value>
+  </data>
+  <data name="LabelNewWordText" xml:space="preserve">
+    <value>Новое слово</value>
+  </data>
 </root>

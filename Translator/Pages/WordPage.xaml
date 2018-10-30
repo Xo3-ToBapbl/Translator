@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:Translator.Controls"
              xmlns:ViewModels="clr-namespace:Translator.ViewModels"
+             xmlns:Extensions="clr-namespace:Translator.Extensions"
              x:Class="Translator.Pages.WordPage"
              BackgroundColor="{StaticResource ColorBackgroundDark}"
              NavigationPage.HasNavigationBar="False">
@@ -45,15 +46,15 @@
                 </Image.GestureRecognizers>
             </Image>
 
-            <Label Text="Новое слово"
-                    FontSize="{StaticResource SizeTxtCommon}"
-                    TextColor="White"
-                    BackgroundColor="Transparent"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"/>
+            <Label Text="{Extensions:Localization LabelNewWordText}"
+                   FontSize="{StaticResource SizeTxtCommon}"
+                   TextColor="White"
+                   BackgroundColor="Transparent"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
 
             <Controls:CustomButton x:Name="btnSaveWord"
-                                   Text="Сохранить"
+                                   Text="{Extensions:Localization ButtonSaveWordText}"
                                    TextColor="Black"
                                    BackgroundColor="{StaticResource ColorBtnWordOperationBackground}"
                                    HeightRequest="32"
@@ -68,7 +69,7 @@
 
         <StackLayout Orientation="Horizontal">
             <Controls:CustomEntry x:Name="entryOriginal"
-                                Placeholder="Слово"
+                                Placeholder="{Extensions:Localization EntryOriginalPlaceholder}"
                                 Style="{StaticResource customEntryStyle}"
                                 Text="{Binding Original}"/>
 
@@ -85,7 +86,7 @@
         <StackLayout Orientation="Horizontal">
 
             <Controls:CustomEntry x:Name="entryCurrentTranslation"
-                                    Placeholder="Перевод"
+                                    Placeholder="{Extensions:Localization EntryTranslationPlaceholder}"
                                     Style="{StaticResource customEntryStyle}"
                                     Text="{Binding CurrentTranslation}"/>
 

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Translator.Pages.SettingsPage"
+             BackgroundColor="{StaticResource ColorBackgroundDark}">
+
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            BackgroundColor="{StaticResource ColorBackgroundLight}">
+
+        <ListView.Header>
+            <Label/>
+        </ListView.Header>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding .}" 
+                          />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+  </ListView>
+</ContentPage>
