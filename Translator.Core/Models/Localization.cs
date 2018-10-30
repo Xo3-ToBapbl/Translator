@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Translator.Models
+namespace Translator.Core.Models
 {
     public class Localization
     {

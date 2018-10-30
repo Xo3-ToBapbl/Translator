@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Translator.Enums;
-using Translator.Models;
+﻿using System.Linq;
+using Translator.Core.Enums;
+using Translator.Core.Models;
 using Translator.ViewModels;
 
 namespace Translator.Extensions

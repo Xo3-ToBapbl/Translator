@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Translator.Enums
+namespace Translator.Core.Enums
 {
     public enum AddWordTypes
     {

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
-using System.Text;
-using Translator.Services;
+using Translator.Core.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +22,7 @@ namespace Translator.Extensions
 
         public LocalizationExtension()
         {
-            cultureInfo = new CultureInfo(App.Localization.Key);
+            cultureInfo = new CultureInfo(App.Localization.Key, false);
         }
 
         public object ProvideValue(IServiceProvider serviceProvider)

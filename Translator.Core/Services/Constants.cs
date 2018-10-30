@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Text;
 
-namespace Translator.Services
+namespace Translator.Core.Services
 {
     public static class Constants
     {
