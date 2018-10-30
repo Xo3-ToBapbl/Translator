@@ -114,6 +114,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\addNewWord.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Translator.Core\Translator.Core.csproj">
+      <Project>{525F205D-061A-4BC6-B299-6032B627C212}</Project>
+      <Name>Translator.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Translator\Translator.csproj">
       <Project>{6951F5DF-B1FD-45AE-8602-02DFFDEA9A97}</Project>
       <Name>Translator</Name>

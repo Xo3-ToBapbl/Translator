@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Translator.ViewModels
+﻿namespace Translator.ViewModels
 {
     public class TranslationViewModel : ViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
+using Translator.Core.Interfaces;
 using Translator.Droid.Services;
-using Translator.Interfaces;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(FilePathService))]

@@ -1,11 +1,8 @@
-﻿using System;
-using Translator.Interfaces;
-using Translator.Models;
-using Translator.Models.Repositories;
+﻿using Translator.Core.Interfaces;
+using Translator.Core.Models;
+using Translator.Core.Models.Repositories;
+using Translator.Core.Services;
 using Translator.Pages;
-using Translator.Pages.MasterPages;
-using Translator.Resources;
-using Translator.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

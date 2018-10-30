@@ -2,8 +2,8 @@
 <Pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
                  xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 xmlns:localEnums="clr-namespace:Translator.Enums"
                  xmlns:Extensions="clr-namespace:Translator.Extensions"
+                 xmlns:enums="clr-namespace:Translator.Core.Enums;assembly=Translator.Core"
                  x:Class="Translator.Pages.PopUpPages.AddNewWordMenu"
                  Padding="0,0,0,105"
                  BackgroundColor="Transparent">
@@ -29,11 +29,11 @@
 
         <Button Text="{Extensions:Localization ButtonManuallyText}"
                 Style="{StaticResource AddNewWordMenuButton}"
-                CommandParameter="{x:Static localEnums:AddWordTypes.Manual}"/>
+                CommandParameter="{x:Static enums:AddWordTypes.Manual}"/>
 
         <Button Text="{Extensions:Localization ButtonOnlineText}"
                 Style="{StaticResource AddNewWordMenuButton}"
-                CommandParameter="{x:Static localEnums:AddWordTypes.RemoteAPI}"/>
+                CommandParameter="{x:Static enums:AddWordTypes.RemoteAPI}"/>
 
     </StackLayout>
 

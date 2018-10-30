@@ -1,25 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.Net;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Translator.Core.Interfaces;
+using Translator.Core.Models;
+using Translator.Core.Services;
 using Translator.Droid.Services;
 using Translator.Extensions;
-using Translator.Interfaces;
-using Translator.Models;
-using Translator.Services;
 using Xamarin.Forms;
-using Uri = System.Uri;
 
 [assembly: Dependency(typeof(TranslationYandexService))]
 namespace Translator.Droid.Services

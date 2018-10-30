@@ -3,14 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Windows.Input;
-using Translator.Enums;
+using Translator.Core.Enums;
+using Translator.Core.Services;
 using Translator.Extensions;
-using Translator.Interfaces;
 using Translator.Pages;
 using Translator.Pages.PopUpPages;
-using Translator.Services;
 using Xamarin.Forms;
 
 namespace Translator.ViewModels

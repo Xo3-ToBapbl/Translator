@@ -2,8 +2,7 @@
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Translator.Services;
+using Translator.Core.Services;
 
 namespace Translator.Core.Models
 {

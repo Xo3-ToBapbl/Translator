@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
                  xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:localEnums="clr-namespace:Translator.Enums"
                  xmlns:Extensions="clr-namespace:Translator.Extensions"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:enums="clr-namespace:Translator.Core.Enums;assembly=Translator.Core"
                  x:Class="Translator.Pages.PopUpPages.FilterWordsMenu"
                  BackgroundColor="Transparent">
 
@@ -28,19 +28,19 @@
 
         <Button Text="{Extensions:Localization ButtonAZText}"
                 Style="{StaticResource Key=FilterMenuButton}"
-                CommandParameter="{x:Static localEnums:WordsFilterTypes.Alphabetical}"/>
+                CommandParameter="{x:Static enums:WordsFilterTypes.Alphabetical}"/>
 
         <Button Text="{Extensions:Localization ButtonZAText}"
                 Style="{StaticResource Key=FilterMenuButton}"
-                CommandParameter="{x:Static localEnums:WordsFilterTypes.AlphabeticalDescending}"/>
+                CommandParameter="{x:Static enums:WordsFilterTypes.AlphabeticalDescending}"/>
 
         <Button Text="{Extensions:Localization ButtonNewOldText}"
                 Style="{StaticResource Key=FilterMenuButton}"
-                CommandParameter="{x:Static localEnums:WordsFilterTypes.Date}"/>
+                CommandParameter="{x:Static enums:WordsFilterTypes.Date}"/>
 
         <Button Text="{Extensions:Localization ButtonOldNewText}"
                 Style="{StaticResource Key=FilterMenuButton}"
-                CommandParameter="{x:Static localEnums:WordsFilterTypes.DateDescending}"/>
+                CommandParameter="{x:Static enums:WordsFilterTypes.DateDescending}"/>
 
     </StackLayout>
 

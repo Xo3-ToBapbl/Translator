@@ -2,9 +2,7 @@
 using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Translator.Models;
-using Translator.Services;
+using Translator.Core.Services;
 
 namespace Translator.Core.Models.Repositories
 {

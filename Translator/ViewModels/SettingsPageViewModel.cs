@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Text;
 using System.Windows.Input;
-using Translator.Models;
+using Translator.Core.Models;
 using Translator.Pages.MasterPages;
 using Translator.Resources;
-using Translator.Services;
 using Xamarin.Forms;
 
 namespace Translator.ViewModels

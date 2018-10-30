@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using Rg.Plugins.Popup.Services;
-using Translator.Models;
+using Translator.Core.Models;
+using Translator.Core.Services;
 using Translator.Pages.MasterPages;
 using Translator.Pages.PopUpPages;
-using Translator.Services;
 using Xamarin.Auth;
 using Xamarin.Forms;
 
