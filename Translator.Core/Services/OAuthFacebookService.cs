@@ -1,10 +1,17 @@
 ﻿using System;
+using Translator.Core.Interfaces;
+using Translator.Core.Models;
 using Xamarin.Auth;
 
 namespace Translator.Core.Services
 {
     public class OAuthFacebookService
     {
+        public ILoginResult<FacebookResult> LogIn()
+        {
+            return null;
+        } 
+
         private void Authenticate()
         {
             var authenticator = new OAuth2Authenticator(
