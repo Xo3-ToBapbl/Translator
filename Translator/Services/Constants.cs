@@ -9,12 +9,8 @@ namespace Translator.Services
     {
         public const string AppName = "Translator";
         public const string AppResourcePath = "Translator.Resources.AppResources";
-
-        public class Localization
-        {
-            public const string En = "en";
-            public const string Ru = "ru";
-        }
+        public const string AppDefaultLocalization = "en";
+        public const string AppDefaultLanguage = "English";
 
         public class FacebookAPI
         {

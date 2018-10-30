@@ -10,6 +10,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+
             <Style x:Key="customEntryStyle" TargetType="Controls:CustomEntry">
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorBackgroundLight}"/>
                 <Setter Property="PlaceholderColor" Value="{StaticResource ColorTxtPlaceholder}"/>
@@ -18,15 +19,7 @@
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
-
-            <Style x:Key="imgCancel" TargetType="Image">
-                <Setter Property="Source" Value="cancelWhite64px.png"/>
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="HeightRequest" Value="19"/>
-                <Setter Property="WidthRequest" Value="19"/>
-                <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="VerticalOptions" Value="Center"/>
-            </Style>
+            
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -36,9 +29,7 @@
 
         <StackLayout Orientation="Horizontal">
 
-            <Image x:Name="imgBtnCancelWord"
-                   Style="{StaticResource imgCancel}"
-                   HorizontalOptions="Start"
+            <Image Style="{StaticResource ImgCancel}"
                    Margin="0,0,15,0">
 
                 <Image.GestureRecognizers>
@@ -47,11 +38,7 @@
             </Image>
 
             <Label Text="{Extensions:Localization LabelNewWordText}"
-                   FontSize="{StaticResource SizeTxtCommon}"
-                   TextColor="White"
-                   BackgroundColor="Transparent"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Center"/>
+                   Style="{StaticResource LabelTitlePage}"/>
 
             <Controls:CustomButton x:Name="btnSaveWord"
                                    Text="{Extensions:Localization ButtonSaveWordText}"

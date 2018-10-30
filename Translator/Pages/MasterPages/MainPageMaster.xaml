@@ -27,13 +27,16 @@
 
         <Button Style="{StaticResource Key=MasterPageButton}"
                 Text="{Extensions:Localization ButtonAddText}"/>
+
         <Button Style="{StaticResource Key=MasterPageButton}"
-                Text="{Extensions:Localization ButtonSettingsText}"/>
+                Text="{Extensions:Localization ButtonSettingsText}"
+                Command="{Binding SettingsCommand}"/>
+
         <Button Style="{StaticResource Key=MasterPageButton}"
                 Text="{Extensions:Localization ButtonStatisticsText}"/>
+
         <Button Style="{StaticResource Key=MasterPageButton}"
-                Text="{Extensions:Localization ButtonAboutAppText}"
-                />
+                Text="{Extensions:Localization ButtonAboutAppText}"/>
 
     </StackLayout>
 

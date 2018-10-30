@@ -171,4 +171,7 @@
   <data name="LabelNewWordText" xml:space="preserve">
     <value>Новое слово</value>
   </data>
+  <data name="LabelChooseLanguageText" xml:space="preserve">
+    <value>Выберите язык:</value>
+  </data>
 </root>

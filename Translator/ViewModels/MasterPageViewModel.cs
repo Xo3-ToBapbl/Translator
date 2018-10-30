@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Translator.Pages;
 using Xamarin.Forms;
 
 namespace Translator.ViewModels
@@ -22,7 +23,9 @@ namespace Translator.ViewModels
 
         private async void ShowSettingsPage()
         {
-            await Navigation.PushModalAsync(null);
+            var page = new SettingsPage();
+
+            await Navigation.PushModalAsync(page);
         }
     }
 }

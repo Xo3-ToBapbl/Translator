@@ -64,6 +64,23 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
 
+            <Style x:Key="ImgCancel" TargetType="Image">
+                <Setter Property="Source" Value="cancelWhite64px.png"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="HeightRequest" Value="19"/>
+                <Setter Property="WidthRequest" Value="19"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LabelTitlePage" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource SizeTxtCommon}"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

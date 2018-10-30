@@ -61,6 +61,33 @@ namespace Translator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About application.
+        /// </summary>
+        internal static string ButtonAboutAppText {
+            get {
+                return ResourceManager.GetString("ButtonAboutAppText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string ButtonAddText {
+            get {
+                return ResourceManager.GetString("ButtonAddText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alphabetically A..Z.
+        /// </summary>
+        internal static string ButtonAZText {
+            get {
+                return ResourceManager.GetString("ButtonAZText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Facebook login.
         /// </summary>
         internal static string ButtonFacebookText {
@@ -70,11 +97,137 @@ namespace Translator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manually.
+        /// </summary>
+        internal static string ButtonManuallyText {
+            get {
+                return ResourceManager.GetString("ButtonManuallyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From new to old.
+        /// </summary>
+        internal static string ButtonNewOldText {
+            get {
+                return ResourceManager.GetString("ButtonNewOldText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From old to new.
+        /// </summary>
+        internal static string ButtonOldNewText {
+            get {
+                return ResourceManager.GetString("ButtonOldNewText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online.
+        /// </summary>
+        internal static string ButtonOnlineText {
+            get {
+                return ResourceManager.GetString("ButtonOnlineText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string ButtonSaveWordText {
+            get {
+                return ResourceManager.GetString("ButtonSaveWordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string ButtonSettingsText {
+            get {
+                return ResourceManager.GetString("ButtonSettingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skip.
         /// </summary>
         internal static string ButtonSkipAuthText {
             get {
                 return ResourceManager.GetString("ButtonSkipAuthText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        internal static string ButtonStatisticsText {
+            get {
+                return ResourceManager.GetString("ButtonStatisticsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alphabetically Z..A.
+        /// </summary>
+        internal static string ButtonZAText {
+            get {
+                return ResourceManager.GetString("ButtonZAText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Word.
+        /// </summary>
+        internal static string EntryOriginalPlaceholder {
+            get {
+                return ResourceManager.GetString("EntryOriginalPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation.
+        /// </summary>
+        internal static string EntryTranslationPlaceholder {
+            get {
+                return ResourceManager.GetString("EntryTranslationPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add word:.
+        /// </summary>
+        internal static string LabelAddWordText {
+            get {
+                return ResourceManager.GetString("LabelAddWordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose language:.
+        /// </summary>
+        internal static string LabelChooseLanguageText {
+            get {
+                return ResourceManager.GetString("LabelChooseLanguageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New word.
+        /// </summary>
+        internal static string LabelNewWordText {
+            get {
+                return ResourceManager.GetString("LabelNewWordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sort words:.
+        /// </summary>
+        internal static string LabelSortWordsText {
+            get {
+                return ResourceManager.GetString("LabelSortWordsText", resourceCulture);
             }
         }
     }

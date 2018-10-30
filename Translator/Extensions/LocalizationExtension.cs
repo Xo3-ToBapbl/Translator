@@ -24,7 +24,7 @@ namespace Translator.Extensions
 
         public LocalizationExtension()
         {
-            cultureInfo = new CultureInfo(App.Localization);
+            cultureInfo = new CultureInfo(App.Localization.Key);
         }
 
         public object ProvideValue(IServiceProvider serviceProvider)
