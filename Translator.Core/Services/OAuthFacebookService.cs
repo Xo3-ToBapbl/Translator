@@ -1,16 +1,25 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Translator.Core.Interfaces;
 using Translator.Core.Models;
 using Xamarin.Auth;
 
 namespace Translator.Core.Services
 {
-    public class OAuthFacebookService
+    public class OAuthFacebookService: ILoginService<FacebookResult>
     {
-        public ILoginResult<FacebookResult> LogIn()
+        private bool hasResult;
+        private ILoginResult<FacebookResult> loginResult;
+
+
+        public async Task<ILoginResult<FacebookResult>> LogIn()
         {
-            return null;
-        } 
+            Authenticate();
+            await CheckResult();
+
+            return loginResult;
+        }
 
         private void Authenticate()
         {
@@ -31,12 +40,42 @@ namespace Translator.Core.Services
 
         private void OnAuthError(object sender, AuthenticatorErrorEventArgs e)
         {
-            throw new NotImplementedException();
+            loginResult = new FacebookLoginResult(false, e.Message, null);
+            hasResult = true;
         }
 
-        private void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs e)
+        private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs e)
         {
+            if (sender is OAuth2Authenticator authenticator)
+            {
+                authenticator.Completed -= OnAuthCompleted;
+                authenticator.Error -= OnAuthError;
+            }
 
+            if (e.IsAuthenticated)
+            {
+                var request = new OAuth2Request("GET", new Uri(Constants.FacebookAPI.DataRequestUrl), null, e.Account);
+                var response = await request.GetResponseAsync();
+                if (response != null)
+                {
+                    string result = await response.GetResponseTextAsync();
+                    FacebookResult facebookResult = JsonConvert.DeserializeObject<FacebookResult>(result);
+                    loginResult = new FacebookLoginResult(false, "", facebookResult);
+                    hasResult = true;
+                }
+                else
+                    OnAuthError(null,
+                        new AuthenticatorErrorEventArgs(Constants.ErrorMessages.AuthenticationError));
+            }
+            else
+                OnAuthError(null,
+                    new AuthenticatorErrorEventArgs(Constants.ErrorMessages.AuthenticationError));
+        }
+
+        private async Task CheckResult()
+        {
+            while (!hasResult)
+                await Task.Delay(1000);
         }
     }
 }

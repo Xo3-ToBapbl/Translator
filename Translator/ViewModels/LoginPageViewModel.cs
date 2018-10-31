@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Newtonsoft.Json;
 using Rg.Plugins.Popup.Services;
+using Translator.Core.Interfaces;
 using Translator.Core.Models;
 using Translator.Core.Services;
 using Translator.Pages.MasterPages;
@@ -55,7 +56,7 @@ namespace Translator.ViewModels
 
             if (e.IsAuthenticated)
             {
-                var request = new OAuth2Request("GET", new Uri(Constants.FacebookAPI.DataRequestUrl), null,e.Account);
+                var request = new OAuth2Request("GET", new Uri(Constants.FacebookAPI.DataRequestUrl), null, e.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
@@ -65,11 +66,11 @@ namespace Translator.ViewModels
                     App.Current.MainPage = new MainPage(user);
                 }
                 else
-                    OnAuthError(null, 
+                    OnAuthError(null,
                         new AuthenticatorErrorEventArgs(Constants.ErrorMessages.AuthenticationError));
             }
             else
-                OnAuthError(null, 
+                OnAuthError(null,
                     new AuthenticatorErrorEventArgs(Constants.ErrorMessages.AuthenticationError));
         }
 
@@ -81,3 +82,4 @@ namespace Translator.ViewModels
         }
     }
 }
+
